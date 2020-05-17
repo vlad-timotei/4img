@@ -1,0 +1,118 @@
+h1,
+.start {
+	font-family: 'Alfa Slab One', cursive !important;
+}
+
+.invisible {
+	display: none;
+}
+
+.cent {
+	margin: 0px auto;
+	display: block;
+}
+
+.mb10 {
+	margin-bottom: 10px;
+}
+
+#startgame {
+	display: block;
+}
+
+.fb {
+	max-width: 200px;
+	margin: 0px auto;
+	display: block;
+}
+
+.switch label {
+	font-size: 1.1rem;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+	background-color: #ccc;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+	background-color: rgb(13, 71, 161);
+}
+
+.modactiv {
+	color: #C62828;
+}
+
+.clue {
+	margin: 0px auto;
+	display: block;
+	width: 100%;
+	max-width: 300px;
+	border: solid 2px #17326f;
+	border-radius: 5px;
+	-webkit-box-shadow: 3px 2px 19px 0px rgba(0, 0, 0, 0.53);
+	-moz-box-shadow: 3px 2px 19px 0px rgba(0, 0, 0, 0.53);
+	box-shadow: 3px 2px 19px 0px rgba(0, 0, 0, 0.53);
+}
+
+#incercare {
+	margin: 0px !important;
+	line-height: 100% !important;
+}
+
+.error {
+	color: red;
+}
+
+.succes {
+	color: green;
+}
+
+.mesajindiciu{
+	cursor: pointer;
+}
+
+
+.letter {
+	margin-bottom: 10px;
+}
+
+.letter a {
+	font-weight: bold;
+}
+
+.menub {
+	font-size: 35px;
+	vertical-align: middle;
+	color: #90949a;
+	cursor: pointer;
+	text-decoration: none;
+	margin-right: 15px;
+}
+
+#nivel {
+	box-shadow: inset 0px 0px 15px 3px #0d47a1;
+	background: linear-gradient(to bottom, #0d47a1 5%, #415989 100%);
+	background-color: #2e466e;
+	border-radius: 17px;
+	-webkit-border-radius: 17px;
+	-moz-border-radius: 17px;
+	display: inline-block;
+	color: #ffffff;
+	font-size: 15px;
+	padding: 5px 15px;
+	cursor: default;
+}
+
+.instructiuni {
+	font-size: 1.2em;
+}
+
+.instructiuni li {
+	margin-bottom: 15px;
+}
+
+.instr_ico {
+	font-size: 25px;
+	vertical-align: middle;
+	color: #2e466e;
+}
