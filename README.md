@@ -1,7 +1,7 @@
 # Patru imagini, un cuvânt din Biblie
 <b>Grupa de vârstă: 7-12 ani</b>
 
-Un joc în care copilul vede patru imagini, care au un element în comun. Poate să fie un personaj biblic sau un obiect sau cuvânt din Biblie. 
+Un joc în care copilul vede patru imagini, care au un element în comun. Poate să fie un personaj biblic, un obiect sau cuvânt din Biblie. 
  
 # Cum se joacă
 
