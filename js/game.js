@@ -1,6 +1,6 @@
 // Un joc creat de Vlad Timotei 2020
  // ver. 16052020
-  var nivel, solutie, lungime_solutie, lungime_incercare, definitie, mode, nr_butoane, workaroundshint;
+  var nivel, solutie, lungime_solutie, lungime_incercare, definitie, mode, nr_butoane, workaroundshint, timeforhint;
   var joc="4img1word_17052020";
   var btns = []; //incepe cu 1
   var sound=1;
@@ -52,7 +52,7 @@
    
   
   if(fromhome==1) { eplay(sninja); $("#startgame").hide(1000);  $("#game").show(500); joaca();}
-  if(fromhome==0) { if(nivel>=niveluri.length) { $("#game").hide(500); $("#endgame").show(500);}
+  if(fromhome==0) { if(nivel>=niveluri.length) {clearTimeout(workaroundshint);  $("#game").hide(500); $("#endgame").show(500);}
              else {  $("#game").hide(600);  setTimeout(joaca,400); $("#game").show(500);}
                   }   
   if(fromhome==-1){$("#endgame").hide(500);  setTimeout(joaca,400); $("#game").show(500);}
@@ -162,8 +162,8 @@
 	else
 	{
 	 nrincercari++;
-     if(nrincercari==1&&mode=="easy") {setTimeout(get_clue,5000); workaroundshint=setTimeout(eplay,4900,shint);  }
-	 else if(nrincercari==2&&mode=="hard") { setTimeout(get_clue,5000);	 workaroundshint=setTimeout(eplay,4900,shint); }
+     if(nrincercari==1&&mode=="easy") {timeforhint=setTimeout(get_clue,5000); workaroundshint=setTimeout(eplay,4900,shint);  }
+	 else if(nrincercari==2&&mode=="hard") { timeforhint=setTimeout(get_clue,5000);	 workaroundshint=setTimeout(eplay,4900,shint); }
 	 eplay(sincorect);
 	 ascunde_definitie(250);
 	 setTimeout(pune_mesaj,225,500,0);
@@ -182,8 +182,8 @@
   }
 
   function reset_game() {  setTimeout(eplay,450,sninja); $("#resetable").hide(500); setTimeout(joaca,500); $("#resetable").show(500); }
-  function newGame(){setC(joc,0); nivel=0; start(-1); }
-  function next(){ nivel++;  setC(joc,nivel); start(0);  }
+  function newGame(){clearTimeout(workaroundshint); clearTimeout(timeforhint); setC(joc,0); nivel=0; start(-1); }
+  function next(){clearTimeout(workaroundshint); clearTimeout(timeforhint); nivel++;  setC(joc,nivel); start(0);  }
   
   function setC(cname, cvalue) {var d = new Date(); d.setTime(d.getTime() + (30*24*60*60*1000));  var expires = "expires="+ d.toUTCString();  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; }
   function getC(cname) { var name = cname + "=";  var decodedCookie = decodeURIComponent(document.cookie);   var ca = decodedCookie.split(';');   for(var i = 0; i <ca.length; i++) { var c = ca[i];  while (c.charAt(0) == ' ') { c = c.substring(1); }if (c.indexOf(name) == 0) { return c.substring(name.length, c.length);}}return 0;}
@@ -232,7 +232,7 @@
   
   function level_check(){
   var startlevel = parseInt(nivel)+1;
-  if(nivel>=niveluri.length) { $("#startgame").hide(); $("#endgame").show(1000);  } 
+  if(nivel>=niveluri.length) { clearTimeout(workaroundshint);  $("#startgame").hide(); $("#endgame").show(1000);  } 
   else if (startlevel==1) $("#startlevel").html("START"); else $("#startlevel").html("Începe nivelul "+startlevel);
   }
   
