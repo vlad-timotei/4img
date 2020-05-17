@@ -1,7 +1,7 @@
 // Un joc creat de Vlad Timotei 2020
  // ver. 16052020
-  var nivel, solutie, lungime_solutie, lungime_incercare, definitie, mode, nr_butoane;
-  var joc="4imagini_ver17052020.5";
+  var nivel, solutie, lungime_solutie, lungime_incercare, definitie, mode, nr_butoane, workaroundshint;
+  var joc="4img1word_17052020";
   var btns = []; //incepe cu 1
   var sound=1;
   var nrincercari;
@@ -13,7 +13,7 @@
   var spunelitera = document.getElementById("s_pune_litera"); 
   var sninja = document.getElementById("s_ninja"); 
   var sswitch = document.getElementById("s_switch"); 
-  var sindiciu = document.getElementById("s_indiciu"); 
+  var shint = document.getElementById("s_hint"); 
   var niveluri = [
 		"MOISE|2,4,6,8|personaj biblic",
 		"IOSIF|1,3,5,7|personaj biblic",
@@ -51,7 +51,7 @@
   { 
    
   
-  if(fromhome==1) { if(sound) sninja.play(); $("#startgame").hide(1000);  $("#game").show(500); joaca();}
+  if(fromhome==1) { eplay(sninja); $("#startgame").hide(1000);  $("#game").show(500); joaca();}
   if(fromhome==0) { if(nivel>=niveluri.length) { $("#game").hide(500); $("#endgame").show(500);}
              else {  $("#game").hide(600);  setTimeout(joaca,400); $("#game").show(500);}
                   }   
@@ -132,7 +132,7 @@
   
   function putInLetter(litera)
   {
-  if(sound) spunelitera.play();
+  eplay(spunelitera);
   lungime_incercare++;  btns[litera]=1;
   document.getElementById("incercare").innerHTML=document.getElementById("incercare").innerHTML.replace('_', btns_txt[litera-1]);
   litera="#"+litera;   $(litera).attr( 'style',"background-color: #CCC !important;" );
@@ -141,7 +141,7 @@
   
   function getOutLetter(litera)
   {
-  if(sound) sialitera.play();
+  eplay(sialitera);
   lungime_incercare--;  btns[litera]=0;
   incercare=document.getElementById('incercare').innerHTML;
   var pos = incercare.lastIndexOf(btns_txt[litera-1]); 
@@ -154,7 +154,7 @@
     var sol = document.getElementById('incercare').innerHTML.replace(/\s/g,''); 
 	if(sol==solutie)
 	{
-	if(sound) scorect.play();
+	eplay(scorect);
 	ascunde_definitie(100);
 	setTimeout(pune_mesaj,75,250,1);
 	setTimeout(next,1000);
@@ -162,9 +162,9 @@
 	else
 	{
 	 nrincercari++;
-     if(nrincercari==1&&mode=="easy") setTimeout(get_clue,5000);	 
-	 if(nrincercari==2&&mode=="hard") setTimeout(get_clue,5000);	
-	 if(sound) sincorect.play();
+     if(nrincercari==1&&mode=="easy") {setTimeout(get_clue,5000); workaroundshint=setTimeout(eplay,4900,shint);  }
+	 else if(nrincercari==2&&mode=="hard") { setTimeout(get_clue,5000);	 workaroundshint=setTimeout(eplay,4900,shint); }
+	 eplay(sincorect);
 	 ascunde_definitie(250);
 	 setTimeout(pune_mesaj,225,500,0);
 	 setTimeout(ascunde_definitie,2250,500);
@@ -181,7 +181,7 @@
   
   }
 
-  function reset_game() { if(sound) setTimeout(function(){sninja.play()},450); $("#resetable").hide(500); setTimeout(joaca,500); $("#resetable").show(500); }
+  function reset_game() {  setTimeout(eplay,450,sninja); $("#resetable").hide(500); setTimeout(joaca,500); $("#resetable").show(500); }
   function newGame(){setC(joc,0); nivel=0; start(-1); }
   function next(){ nivel++;  setC(joc,nivel); start(0);  }
   
@@ -191,7 +191,7 @@
   function mode_highlight(){if(mode=="hard") { $("#hard").addClass("modactiv"); $("#easy").removeClass("modactiv");}  else { $("#easy").addClass("modactiv"); $("#hard").removeClass("modactiv");}}
   function mode_show(){if(mode=="hard") $( "#mode").prop('checked', true);  else $( "#mode").prop('checked', false); }
   
-  function s_switch_check(){ if(sound) sswitch.play(); } 
+  function s_switch_check(){ eplay(sswitch); } 
   
   function mode_check()
   {
@@ -218,10 +218,10 @@
   
   function info(x){
   if(x){$("#info").hide(500); $("#game").show(500);}
-  else{ $("#game").hide(500); $("#info").show(500);}}
+  else{ clearTimeout(workaroundshint); $("#game").hide(500); $("#info").show(500);}}
   
   function home(){
-  level_check(); $("#game").hide(500); $("#startgame").show(500);
+  clearTimeout(workaroundshint); level_check(); $("#game").hide(500); $("#startgame").show(500);
   }
   
   function switch_sound(){
@@ -236,14 +236,14 @@
   else if (startlevel==1) $("#startlevel").html("START"); else $("#startlevel").html("Începe nivelul "+startlevel);
   }
   
+  
   function get_clue(){
-	 if(sound) sindiciu.play();
-     hide_nivel(250);
+	 hide_nivel(250);
 	 setTimeout(fill_nivel,245,2,"<b class='mesajindiciu' onClick='show_clue();'>Indiciu!</b>",500);
   }
   function show_clue() 
   {
-   if(sound) spunelitera.play();
+   eplay(spunelitera);
    var y = solutie.split("");
    incercare=y[0]+" ";
    lungime_incercare=1;
@@ -255,6 +255,9 @@
    setTimeout(fill_nivel,240,1);
    
   }
+  
+  function eplay(efect) {if(sound) efect.play(); }
+  
   $(document).ready( function(){
   nivel=getC(joc); 
   mode=getC(joc+"_mode");  
