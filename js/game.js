@@ -1,7 +1,11 @@
 // Un joc creat de Vlad Timotei 2020
  // ver. 16052020
-  var nivel, solutie, lungime_solutie, lungime_incercare, definitie, mode, nr_butoane, workaroundshint, timeforhint;
-  var joc="4img1word_17052020";
+  var nivel, solutie, lungime_solutie, lungime_incercare, definitie, mode, nr_butoane, workaroundshint, timeforhint, stats;
+  var startofgame, endofgame, timepergame, scorepergame, totalscore; 
+  var coeficient_dificultate = {easy:1, hard:1.75};
+  var coeficient_indiciu=1;
+  var indiciu_folosit=0;
+  var joc="4img1word_18052020plus";
   var btns = []; //incepe cu 1
   var sound=1;
   var nrincercari;
@@ -45,6 +49,8 @@
 		"PLÂNS|39,40,41,42|substantiv",
 		"GRIJĂ|33,31,32,34|substantiv",
 		"RUGĂCIUNE|j_3,34,eye,eye2|substantiv"
+		
+		
 		];
  
   function start(fromhome)
@@ -52,13 +58,14 @@
    
   
   if(fromhome==1) { eplay(sninja); $("#startgame").hide(1000);  $("#game").show(500); joaca();}
-  if(fromhome==0) { if(nivel>=niveluri.length) {clearTimeout(workaroundshint);  $("#game").hide(500); $("#endgame").show(500);}
+  if(fromhome==0) { if(nivel>=niveluri.length) {clearTimeout(workaroundshint); show_final_score(); $("#game").hide(500); $("#endgame").show(500);}
              else {  $("#game").hide(600);  setTimeout(joaca,400); $("#game").show(500);}
                   }   
   if(fromhome==-1){$("#endgame").hide(500);  setTimeout(joaca,400); $("#game").show(500);}
   }
  
   function joaca(){
+  gametime(1);
   init(); 
   fill_incercare();
   fill_nivel(1);
@@ -76,6 +83,8 @@
   lungime_solutie=solutie.length; 
   lungime_incercare=0;
   nrincercari=0;
+  coeficient_indiciu=1;
+  indiciu_folosit=0;
   incercare="";
   }
   
@@ -156,8 +165,9 @@
 	{
 	eplay(scorect);
 	ascunde_definitie(100);
+	gametime(2); scor(); 
 	setTimeout(pune_mesaj,75,250,1);
-	setTimeout(next,1000);
+	setTimeout(next,1500);
 	}
 	else
 	{
@@ -175,15 +185,15 @@
   function pune_mesaj(t,tip)
   {
   if(tip==1)
-  $('#definitie').html("<b class='succes'>Felicitări!</b>").fadeIn(t);
+  $('#definitie').html("<b class='succes'>Felicitări!</b> Scorul tău: <b>"+totalscore+"</b>").fadeIn(t);
   else
   $("#definitie").html("<b class='error'>Mai încearcă!</b>").fadeIn(t);
   
   }
 
   function reset_game() {  setTimeout(eplay,450,sninja); $("#resetable").hide(500); setTimeout(joaca,500); $("#resetable").show(500); }
-  function newGame(){clearTimeout(workaroundshint); clearTimeout(timeforhint); setC(joc,0); nivel=0; start(-1); }
-  function next(){clearTimeout(workaroundshint); clearTimeout(timeforhint); nivel++;  setC(joc,nivel); start(0);  }
+  function newGame(){clearTimeout(workaroundshint); clearTimeout(timeforhint); setC(joc,0); setC(joc+"_score",0); totalscore=0; nivel=0; start(-1); }
+  function next(){ stats="?nivel="+parseInt(parseInt(nivel)+1)+"&time="+parseInt(timepergame/1000)+"&indiciu="+indiciu_folosit+"&mod="+mode+"&cuv="+solutie; clearTimeout(workaroundshint); clearTimeout(timeforhint); nivel++;  setC(joc,nivel); setC(joc+"_score", totalscore); start(0); send_stats(); }
   
   function setC(cname, cvalue) {var d = new Date(); d.setTime(d.getTime() + (30*24*60*60*1000));  var expires = "expires="+ d.toUTCString();  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; }
   function getC(cname) { var name = cname + "=";  var decodedCookie = decodeURIComponent(document.cookie);   var ca = decodedCookie.split(';');   for(var i = 0; i <ca.length; i++) { var c = ca[i];  while (c.charAt(0) == ' ') { c = c.substring(1); }if (c.indexOf(name) == 0) { return c.substring(name.length, c.length);}}return 0;}
@@ -232,7 +242,7 @@
   
   function level_check(){
   var startlevel = parseInt(nivel)+1;
-  if(nivel>=niveluri.length) { clearTimeout(workaroundshint);  $("#startgame").hide(); $("#endgame").show(1000);  } 
+  if(nivel>=niveluri.length) { show_final_score(); clearTimeout(workaroundshint);  $("#startgame").hide(); $("#endgame").show(1000);  } 
   else if (startlevel==1) $("#startlevel").html("START"); else $("#startlevel").html("Începe nivelul "+startlevel);
   }
   
@@ -243,6 +253,8 @@
   }
   function show_clue() 
   {
+   coeficient_indiciu=1-(1/lungime_solutie);
+   indiciu_folosit=1;
    eplay(spunelitera);
    var y = solutie.split("");
    incercare=y[0]+" ";
@@ -258,8 +270,28 @@
   
   function eplay(efect) {if(sound) efect.play(); }
   
+  function gametime(moment){if(moment==1) startofgame=new Date().getTime(); else  endofgame=new Date().getTime(); }
+  
+  function scor()
+  {
+	 timepergame=endofgame-startofgame;
+	 if(timepergame>300000) timepergame=300000;
+	 var evaluare = (300000-timepergame+(lungime_solutie*10000))/1000;
+	 scorepergame=parseInt(evaluare*coeficient_dificultate[mode]*coeficient_indiciu);
+	 totalscore=parseInt(totalscore)+scorepergame;
+  }
+  
+  function show_final_score() {$("#scor_total").html(totalscore);}
+  
+  function send_stats(){
+  var xhttp = new XMLHttpRequest(); 
+  xhttp.open("GET", "https://vladtimotei.ro/scripts/4img_stats.php"+stats, true);
+  xhttp.send();
+  }
+  
   $(document).ready( function(){
-  nivel=getC(joc); 
+  nivel=getC(joc);
+  totalscore=getC(joc+"_score");  
   mode=getC(joc+"_mode");  
   if(mode==0) mode="easy"; 
   mode_show();  
