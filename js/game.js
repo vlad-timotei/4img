@@ -1,11 +1,11 @@
 // Un joc creat de Vlad Timotei 2020
- // ver. 16052020
-  var nivel, solutie, lungime_solutie, lungime_incercare, definitie, mode, nr_butoane, workaroundshint, timeforhint, stats;
+ // ver. 18052020
+  var nivel, solutie, lungime_solutie, lungime_incercare, corect, definitie, mode, nr_butoane, workaroundshint, timeforhint, stats;
   var startofgame, endofgame, timepergame, scorepergame, totalscore; 
   var coeficient_dificultate = {easy:1, hard:1.75};
   var coeficient_indiciu=1;
   var indiciu_folosit=0;
-  var joc="4img1word_18052020plus";
+  var joc="4img1word_19052020";
   var btns = []; //incepe cu 1
   var sound=1;
   var nrincercari;
@@ -80,6 +80,7 @@
   definitie=date[2]; 
   indicii=date[1].split(',',4); 
   solutie=date[0]; 
+  corect=0;
   lungime_solutie=solutie.length; 
   lungime_incercare=0;
   nrincercari=0;
@@ -96,7 +97,7 @@
   
   function fill_incercare() {for(var i=1; i<=lungime_solutie; i++)  incercare=incercare+"_ ";   $("#incercare").html(incercare); }
   
-  function fill_img(){ for(var i=1;i<=4;i++) document.getElementById("clue"+i).src="images/"+indicii[i-1]+".jpg"; }
+  function fill_img(){ shuffle(indicii); for(var i=1;i<=4;i++) document.getElementById("clue"+i).src="images/"+indicii[i-1]+".jpg"; }
   
   function ascunde_definitie(t){ $('#definitie').fadeOut(t); }
   
@@ -137,12 +138,14 @@
   }return array;
   }
   
-  function touch(l){ if(btns[l]==1) getOutLetter(l); else if(lungime_incercare<lungime_solutie) putInLetter(l); }
+  function touch(l){if(corect==0){ if(btns[l]==1) getOutLetter(l); else if(lungime_incercare<lungime_solutie) putInLetter(l); }}
   
   function putInLetter(litera)
   {
+  if(lungime_incercare==0) $(".reset").addClass("resetactiv"); 
   eplay(spunelitera);
-  lungime_incercare++;  btns[litera]=1;
+  lungime_incercare++; 
+  btns[litera]=1;
   document.getElementById("incercare").innerHTML=document.getElementById("incercare").innerHTML.replace('_', btns_txt[litera-1]);
   litera="#"+litera;   $(litera).attr( 'style',"background-color: #CCC !important;" );
   if(lungime_incercare==lungime_solutie) verificare();
@@ -150,6 +153,7 @@
   
   function getOutLetter(litera)
   {
+  if(lungime_incercare==1) $(".reset").removeClass("resetactiv"); 
   eplay(sialitera);
   lungime_incercare--;  btns[litera]=0;
   incercare=document.getElementById('incercare').innerHTML;
@@ -163,7 +167,10 @@
     var sol = document.getElementById('incercare').innerHTML.replace(/\s/g,''); 
 	if(sol==solutie)
 	{
+	corect=1;
 	eplay(scorect);
+	lungime_incercare=0; 
+	$(".reset").removeClass("resetactiv");
 	ascunde_definitie(100);
 	gametime(2); scor(); 
 	setTimeout(pune_mesaj,75,250,1);
@@ -191,7 +198,7 @@
   
   }
 
-  function reset_game() {  setTimeout(eplay,450,sninja); $("#resetable").hide(500); setTimeout(joaca,500); $("#resetable").show(500); }
+  function reset_game() { if(lungime_incercare!=0){ lungime_incercare=0; incercare=""; fill_incercare(); init_btns(); setTimeout(eplay,10,sialitera); $(".reset").removeClass("resetactiv");}}
   function newGame(){clearTimeout(workaroundshint); clearTimeout(timeforhint); setC(joc,0); setC(joc+"_score",0); totalscore=0; nivel=0; start(-1); }
   function next(){ stats="?nivel="+parseInt(parseInt(nivel)+1)+"&time="+parseInt(timepergame/1000)+"&indiciu="+indiciu_folosit+"&mod="+mode+"&cuv="+solutie; clearTimeout(workaroundshint); clearTimeout(timeforhint); nivel++;  setC(joc,nivel); setC(joc+"_score", totalscore); start(0); send_stats(); }
   
@@ -227,11 +234,12 @@
   }
   
   function info(x){
+  setTimeout(eplay,10,sninja);
   if(x){$("#info").hide(500); $("#game").show(500);}
   else{ clearTimeout(workaroundshint); $("#game").hide(500); $("#info").show(500);}}
   
   function home(){
-  clearTimeout(workaroundshint); level_check(); $("#game").hide(500); $("#startgame").show(500);
+  clearTimeout(workaroundshint); setTimeout(eplay,10,sninja); level_check(); $("#game").hide(500); $("#startgame").show(500);
   }
   
   function switch_sound(){
@@ -264,6 +272,7 @@
    incercare=incercare+"_ ";  
    $("#incercare").html(incercare);
    $('#nivel').fadeOut(250);
+   $(".reset").addClass("resetactiv");
    setTimeout(fill_nivel,240,1);
    
   }

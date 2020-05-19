@@ -89,6 +89,9 @@ h1,
 	margin-right: 15px;
 }
 
+.reset {color: #90949a57; cursor:default;}
+.resetactiv {color:#90949a; cursor: pointer; }
+
 #nivel {
 	box-shadow: inset 0px 0px 15px 3px #0d47a1;
 	background: linear-gradient(to bottom, #0d47a1 5%, #415989 100%);
