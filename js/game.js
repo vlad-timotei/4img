@@ -1,11 +1,11 @@
 // Un joc creat de Vlad Timotei 2020
- // ver. 18052020
+ // ver. 19052020F
   var nivel, solutie, lungime_solutie, lungime_incercare, corect, definitie, mode, nr_butoane, workaroundshint, timeforhint, stats;
   var startofgame, endofgame, timepergame, scorepergame, totalscore; 
   var coeficient_dificultate = {easy:1, hard:1.75};
   var coeficient_indiciu=1;
   var indiciu_folosit=0;
-  var joc="4img1word_19052020";
+  var joc="4img1word_19052020F";
   var btns = []; //incepe cu 1
   var sound=1;
   var nrincercari;
@@ -202,7 +202,7 @@
   function newGame(){clearTimeout(workaroundshint); clearTimeout(timeforhint); setC(joc,0); setC(joc+"_score",0); totalscore=0; nivel=0; start(-1); }
   function next(){ stats="?nivel="+parseInt(parseInt(nivel)+1)+"&time="+parseInt(timepergame/1000)+"&indiciu="+indiciu_folosit+"&mod="+mode+"&cuv="+solutie; clearTimeout(workaroundshint); clearTimeout(timeforhint); nivel++;  setC(joc,nivel); setC(joc+"_score", totalscore); start(0); send_stats(); }
   
-  function setC(cname, cvalue) {var d = new Date(); d.setTime(d.getTime() + (30*24*60*60*1000));  var expires = "expires="+ d.toUTCString();  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; }
+  function setC(cname, cvalue) {var d = new Date(); d.setTime(d.getTime() + (90*24*60*60*1000));  var expires = "expires="+ d.toUTCString();  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; }
   function getC(cname) { var name = cname + "=";  var decodedCookie = decodeURIComponent(document.cookie);   var ca = decodedCookie.split(';');   for(var i = 0; i <ca.length; i++) { var c = ca[i];  while (c.charAt(0) == ' ') { c = c.substring(1); }if (c.indexOf(name) == 0) { return c.substring(name.length, c.length);}}return 0;}
   
   function mode_highlight(){if(mode=="hard") { $("#hard").addClass("modactiv"); $("#easy").removeClass("modactiv");}  else { $("#easy").addClass("modactiv"); $("#hard").removeClass("modactiv");}}
