@@ -32,3 +32,4 @@ Poți să joci individual, sau să te iei la întrecere cu întreaga familie, fi
 
 # Vlad Timotei
 Explorator pasionat de provocări și de minunile naturii. 
+( Poza: https://vladtimotei.ro/vlad.jpg )
