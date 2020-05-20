@@ -22,6 +22,10 @@ Jocul a apărut din dorința de a oferi copiilor din grupa mea o activitate care
 Poți să joci individual, sau să te iei la întrecere cu întreaga familie, fiecare folosind un dispozitiv separat. Efectele sonore vor da farmec atmosferei și întreaga familie va fi captivată. 
 
 
+# Vlad Timotei
+Explorator pasionat de provocări și de minunile naturii. 
+( Poza: https://vladtimotei.ro/vlad.jpg )
+
 <hr>
 
 <i> Probleme cunoscute </i>
@@ -29,7 +33,3 @@ Poți să joci individual, sau să te iei la întrecere cu întreaga familie, fi
 2. Literele din soluție trec pe 2 rânduri atunci când cuvantul are 9 sau mai multe litere
 3. La fiecare reincarcare a jocului, literele pentru un anumit nivel se schimba; prin metoda excluderii, se pot afla literele corecte
 4. Solutia poate fi aflata din sursa codului sau prin injectare js in bara de adresa
-
-# Vlad Timotei
-Explorator pasionat de provocări și de minunile naturii. 
-( Poza: https://vladtimotei.ro/vlad.jpg )
