@@ -43,7 +43,7 @@
 		"NEEMIA|n_1,n_2,n_3,24|personaj biblic",
 		"DULCE|75,76,77,78|adjectiv",
 		"ROȘIE|35,8,59,60|substantiv-adjectiv",
-		"PUSTIU|11,52,54,53|aubstantiv-adjectiv",
+		"PUSTIU|11,52,54,53|substantiv-adjectiv",
 		"BOLNAV|35,36,37,38|substantiv-adjectiv",
 		"MARE|8,46,48,49|substantiv-adjectiv",
 		"PLÂNS|39,40,41,42|substantiv",
