@@ -48,7 +48,17 @@
 		"MARE|8,46,48,49|substantiv-adjectiv",
 		"PLÂNS|39,40,41,42|substantiv",
 		"GRIJĂ|33,31,32,34|substantiv",
-		"RUGĂCIUNE|j_3,34,eye,eye2|substantiv"
+		"RUGĂCIUNE|j_3,34,eye,eye2|substantiv",
+		"LOT|86,40,87,88|personaj biblic",
+		"GHEDEON|89,90,16,91|personaj biblic",
+		"ESAU|92,93,94,95|personaj biblic",
+		"ABEL|96,97,98,99|personaj biblic",
+		"RUT|100,101,102,103|personaj biblic",
+		"NAAMAN|j_2,j_3,104,105|personaj biblic",
+		"SAMSON|106,107,108,109|personaj biblic",
+		"IONATAN|110,93,111,112|personaj biblic",
+		"SAMUEL|113,114,115,116|personaj biblic",
+		"IOSUA|117,118,119,120|personaj biblic"
 		
 		
 		];
