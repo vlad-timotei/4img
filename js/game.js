@@ -1,5 +1,5 @@
 // Un joc creat de Vlad Timotei 2020
- // ver. 19052020F
+ // ver. 22052020F50
   var nivel, solutie, lungime_solutie, lungime_incercare, corect, definitie, mode, nr_butoane, workaroundshint, timeforhint, stats;
   var startofgame, endofgame, timepergame, scorepergame, totalscore; 
   var coeficient_dificultate = {easy:1, hard:1.75};
