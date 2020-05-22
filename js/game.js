@@ -59,7 +59,7 @@
 		"IONATAN|110,93,111,112|personaj biblic",
 		"SAMUEL|113,114,115,116|personaj biblic",
 		"IOSUA|117,118,119,120|personaj biblic",
-		"GOLIAT|106,138,139,140|personaj biblic"
+		"GOLIAT|106,138,139,140|personaj biblic",
 		"SARA|121,122,123,124|personaj biblic",
 		"RAHAV|125,126,119,118|personaj biblic",
 		"MARTA|127,128,64,66|personaj biblic",
