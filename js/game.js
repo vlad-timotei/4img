@@ -58,8 +58,17 @@
 		"SAMSON|106,107,108,109|personaj biblic",
 		"IONATAN|110,93,111,112|personaj biblic",
 		"SAMUEL|113,114,115,116|personaj biblic",
-		"IOSUA|117,118,119,120|personaj biblic"
-		
+		"IOSUA|117,118,119,120|personaj biblic",
+		"GOLIAT|106,138,139,140|personaj biblic"
+		"SARA|121,122,123,124|personaj biblic",
+		"RAHAV|125,126,119,118|personaj biblic",
+		"MARTA|127,128,64,66|personaj biblic",
+		"PILAT|129,130,131,132|personaj biblic",
+		"ABSALOM|133,17,134,135|personaj biblic",
+		"SAUL|17,1st,136,137|personaj biblic",
+		"BALAAM|134,141,142,136|personaj biblic",
+		"ZACHEU|71,143,144,145|personaj biblic",
+		"ACAN|146,1,147,71|personaj biblic"
 		
 		];
  
