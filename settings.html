@@ -1,7 +1,9 @@
 <script>
 var niv=getV('setnivel');
 if(niv)
-setC("4img1word_19052020F",niv);
+{setC("4img1word_19052020F",niv);
+document.write("Ai terminat nivelul "+niv+" si vei incepe nivelul urmator!");
+}
 
 function setC(cname, cvalue) {var d = new Date(); d.setTime(d.getTime() + (90*24*60*60*1000));  var expires = "expires="+ d.toUTCString();  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; }
 function getV(variable)
@@ -15,4 +17,5 @@ function getV(variable)
        return(false);
 }
 
-</script>  
+</script> <br/> 
+<a href="https://funbible.net/online-games/patru-imagini"> Testeaza nivelul ales</a>
