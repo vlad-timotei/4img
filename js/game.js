@@ -1,5 +1,5 @@
 // Un joc creat de Vlad Timotei 2020
- // ver. 23052020F50
+ // ver. 27052020F50LS
   var nivel, solutie, lungime_solutie, lungime_incercare, corect, definitie, mode, nr_butoane, workaroundshint, timeforhint, stats;
   var startofgame, endofgame, timepergame, scorepergame, totalscore; 
   var coeficient_dificultate = {easy:1, hard:1.75};
@@ -218,11 +218,19 @@
   }
 
   function reset_game() { if(lungime_incercare!=0){ lungime_incercare=0; incercare=""; fill_incercare(); init_btns(); setTimeout(eplay,10,sialitera); $(".reset").removeClass("resetactiv");}}
-  function newGame(){clearTimeout(workaroundshint); clearTimeout(timeforhint); setC(joc,0); setC(joc+"_score",0); totalscore=0; nivel=0; start(-1); }
-  function next(){ stats="?nivel="+parseInt(parseInt(nivel)+1)+"&time="+parseInt(timepergame/1000)+"&indiciu="+indiciu_folosit+"&mod="+mode+"&cuv="+solutie; clearTimeout(workaroundshint); clearTimeout(timeforhint); nivel++;  setC(joc,nivel); setC(joc+"_score", totalscore); start(0); send_stats(); }
+  function newGame(){clearTimeout(workaroundshint); clearTimeout(timeforhint); setval(joc,0); setval(joc+"_score",0); totalscore=0; nivel=0; start(-1); }
+  function next(){ stats="?nivel="+parseInt(parseInt(nivel)+1)+"&time="+parseInt(timepergame/1000)+"&indiciu="+indiciu_folosit+"&mod="+mode+"&cuv="+solutie; clearTimeout(workaroundshint); clearTimeout(timeforhint); nivel++;  setval(joc,nivel); setval(joc+"_score", totalscore); start(0); send_stats(); }
   
-  function setC(cname, cvalue) {var d = new Date(); d.setTime(d.getTime() + (90*24*60*60*1000));  var expires = "expires="+ d.toUTCString();  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; SameSite=None; Secure"; }
-  function getC(cname) { var name = cname + "=";  var decodedCookie = decodeURIComponent(document.cookie);   var ca = decodedCookie.split(';');   for(var i = 0; i <ca.length; i++) { var c = ca[i];  while (c.charAt(0) == ' ') { c = c.substring(1); }if (c.indexOf(name) == 0) { return c.substring(name.length, c.length);}}return 0;}
+  function setval(cname, cvalue) {setLS(cname,cvalue);}
+  function getval(cname) { return getLS(cname);}
+
+
+  function setLC(cname, cvalue,del=1) {var d = new Date(); d.setTime(d.getTime() + (parseFloat(del)*(90*24*60*60*1000)));  var expires = "expires="+ d.toUTCString();  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; SameSite=None; Secure"; }
+  function getLC(cname) { var name = cname + "=";  var decodedCookie = decodeURIComponent(document.cookie);   var ca = decodedCookie.split(';');   for(var i = 0; i <ca.length; i++) { var c = ca[i];  while (c.charAt(0) == ' ') { c = c.substring(1); }if (c.indexOf(name) == 0) { return c.substring(name.length, c.length);}}return 0;}
+  
+  function getLS(cname) { var loc = localStorage.getItem(cname); if(loc) return loc; else return 0; }
+  function setLS(cname, cvalue) { localStorage.setItem(cname,cvalue);} 
+  
   
   function mode_highlight(){if(mode=="hard") { $("#hard").addClass("modactiv"); $("#easy").removeClass("modactiv");}  else { $("#easy").addClass("modactiv"); $("#hard").removeClass("modactiv");}}
   function mode_show(){if(mode=="hard") $( "#mode").prop('checked', true);  else $( "#mode").prop('checked', false); }
@@ -248,7 +256,7 @@
   $("#h2").removeClass("offset-m2");
   $(".hard-letter").addClass("invisible");
   } 
-  setC(joc+"_mode",mode);
+  setval(joc+"_mode",mode);
   mode_highlight();
   }
   
@@ -317,10 +325,18 @@
   xhttp.send();
   }
   
+  function LCtoLS(){
+  if(getLS(joc)==0&&getLC(joc)!=0){
+   setLS(joc,getLC(joc));  setLC(joc,"",-1);
+   setLS(joc+"_mode",getLC(joc+"_mode")); setLC(joc+"_mode","",-1);
+   setLS(joc+"_score",getLC(joc+"_score")); setLC(joc+"_score","",-1);        
+  }}
+  
   $(document).ready( function(){
-  nivel=getC(joc);
-  totalscore=getC(joc+"_score");  
-  mode=getC(joc+"_mode");  
+  LCtoLS();
+  nivel=getval(joc);
+  totalscore=getval(joc+"_score");  
+  mode=getval(joc+"_mode");  
   if(mode==0) mode="easy"; 
   mode_show();  
   mode_highlight();
