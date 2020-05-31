@@ -334,14 +334,15 @@
   
   
   var modal = document.getElementById("modal_area");
-  
+  var modalGame = document.getElementById("game");
   function open_modal(image){
     var modalImg = document.getElementById("maximg");
+	modalGame.style.opacity="0.5";
     modal.style.display = "block";
     modalImg.src = image;
   }
 
-  function close_modal() {modal.style.display = "none";}
+  function close_modal() {modal.style.display = "none"; modalGame.style.opacity="1";}
   
   $(document).ready( function(){
   LCtoLS();
