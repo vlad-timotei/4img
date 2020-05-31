@@ -36,11 +36,11 @@
 	    "IUDA|68,69,70,71|personaj biblic",
 		"IOAN|79,80,81,20|personaj biblic",
 		"ILIE|82,83,84,85|personaj biblic",
-		"IOV|j_1,test,j_2,j_3|personaj biblic",
-	    "LABAN|l_1,l_2,l_3,l_4|personaj biblic",
-		"MATEI|m_1,bible,1st,24|personaj biblic",
-		"SOLOMON|s_1,17,24,temple|personaj biblic",
-		"NEEMIA|n_1,n_2,n_3,24|personaj biblic",
+		"IOV|151,28,152,153|personaj biblic",
+	    "LABAN|154,155,156,157|personaj biblic",
+		"MATEI|158,148,30,24|personaj biblic",
+		"SOLOMON|162,17,24,26|personaj biblic",
+		"NEEMIA|159,160,161,24|personaj biblic",
 		"DULCE|75,76,77,78|adjectiv",
 		"ROȘIE|35,8,59,60|substantiv-adjectiv",
 		"PUSTIU|11,52,54,53|substantiv-adjectiv",
@@ -48,13 +48,13 @@
 		"MARE|8,46,48,49|substantiv-adjectiv",
 		"PLÂNS|39,40,41,42|substantiv",
 		"GRIJĂ|33,31,32,34|substantiv",
-		"RUGĂCIUNE|j_3,34,eye,eye2|substantiv",
+		"RUGĂCIUNE|153,31,149,150|substantiv",
 		"LOT|86,40,87,88|personaj biblic",
 		"GHEDEON|89,90,16,91|personaj biblic",
 		"ESAU|92,93,94,95|personaj biblic",
 		"ABEL|96,97,98,99|personaj biblic",
 		"RUT|100,101,102,103|personaj biblic",
-		"NAAMAN|j_2,j_3,104,105|personaj biblic",
+		"NAAMAN|152,153,104,105|personaj biblic",
 		"SAMSON|106,107,108,109|personaj biblic",
 		"IONATAN|110,93,111,112|personaj biblic",
 		"SAMUEL|113,114,115,116|personaj biblic",
@@ -65,8 +65,8 @@
 		"MARTA|127,128,64,66|personaj biblic",
 		"PILAT|129,130,131,132|personaj biblic",
 		"ABSALOM|133,17,134,135|personaj biblic",
-		"SAUL|17,1st,136,137|personaj biblic",
-		"BALAAM|134,141,142,136|personaj biblic",
+		"SAUL|17,30,136,137|personaj biblic",
+		"BALAAM|134,141,142,70|personaj biblic",
 		"ZACHEU|71,143,144,145|personaj biblic",
 		"ACAN|146,1,147,71|personaj biblic"
 		
@@ -116,7 +116,7 @@
   
   function fill_incercare() {for(var i=1; i<=lungime_solutie; i++)  incercare=incercare+"_ ";   $("#incercare").html(incercare); }
   
-  function fill_img(){ shuffle(indicii); for(var i=1;i<=4;i++) document.getElementById("clue"+i).src="images/"+indicii[i-1]+".jpg"; }
+  function fill_img(){ shuffle(indicii); for(var i=1;i<=4;i++) { document.getElementById("clue"+i).src="images/"+indicii[i-1]+".jpg"; document.getElementById("clueu"+i).innerHTML=indicii[i-1]+".jpg"; }}
   
   function ascunde_definitie(t){ $('#definitie').fadeOut(t); }
   
@@ -331,6 +331,17 @@
    setLS(joc+"_mode",getLC(joc+"_mode")); setLC(joc+"_mode","",-1);
    setLS(joc+"_score",getLC(joc+"_score")); setLC(joc+"_score","",-1);        
   }}
+  
+  
+  var modal = document.getElementById("modal_area");
+  
+  function open_modal(image){
+    var modalImg = document.getElementById("maximg");
+    modal.style.display = "block";
+    modalImg.src = image;
+  }
+
+  function close_modal() {modal.style.display = "none";}
   
   $(document).ready( function(){
   LCtoLS();

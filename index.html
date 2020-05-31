@@ -76,18 +76,22 @@
       <div class="section">
         <div class="row">
           <div class="col s6 m3 offset-m3">
-            <img src="" id="clue1" class="clue c1" />
+            <img src="" id="clue1" onClick="open_modal(this.src);" class="clue c1" />
+			<p id="clueu1"></p>
           </div>
           <div class="col s6 m3 ">
-            <img src="" id="clue2" class="clue c2" />
+            <img src="" id="clue2" onClick="open_modal(this.src);" class="clue c2" />
+			<p id="clueu2"></p>
           </div>
         </div>
         <div class="row mb10">
           <div class="col s6 m3 offset-m3 ">
-            <img src="" id="clue3" class="clue c3" />
+            <img src="" id="clue3" onClick="open_modal(this.src);" class="clue c3" />
+			<p id="clueu3"></p>
           </div>
           <div class="col s6 m3  ">
-            <img src="" id="clue4" class="clue c4" />
+            <img src="" id="clue4" onClick="open_modal(this.src);" class="clue c4" />
+			<p id="clueu4"></p>
           </div>
         </div>
         <div id="resetable">
@@ -124,6 +128,10 @@
 			<div class="col center s2 m1"><i class="menub reset material-icons" onClick="reset_game();">loop</i></div>
           </div>
         </div>
+      </div>
+	  <div id="modal_area" class="modalthing">
+      <span class="close" onClick="close_modal();">&times;</span>
+      <img class="modal-content" onClick="close_modal();" id="maximg">
       </div>
     </div>
 	<audio id="s_hint">
