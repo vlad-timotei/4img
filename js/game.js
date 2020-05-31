@@ -116,7 +116,7 @@
   
   function fill_incercare() {for(var i=1; i<=lungime_solutie; i++)  incercare=incercare+"_ ";   $("#incercare").html(incercare); }
   
-  function fill_img(){ shuffle(indicii); for(var i=1;i<=4;i++) { document.getElementById("clue"+i).src="images/"+indicii[i-1]+".jpg"; document.getElementById("clueu"+i).innerHTML=indicii[i-1]+".jpg"; }}
+  function fill_img(){ shuffle(indicii); for(var i=1;i<=4;i++) { document.getElementById("clue"+i).src="images/"+indicii[i-1]+".jpg"; }}
   
   function ascunde_definitie(t){ $('#definitie').fadeOut(t); }
   
