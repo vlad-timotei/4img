@@ -1,5 +1,5 @@
 // Un joc creat de Vlad Timotei 2020
- // ver. 27052020F50LS
+ // ver. 32052020F50LSM
   var nivel, solutie, lungime_solutie, lungime_incercare, corect, definitie, mode, nr_butoane, workaroundshint, timeforhint, stats;
   var startofgame, endofgame, timepergame, scorepergame, totalscore; 
   var coeficient_dificultate = {easy:1, hard:1.75};
@@ -116,7 +116,7 @@
   
   function fill_incercare() {for(var i=1; i<=lungime_solutie; i++)  incercare=incercare+"_ ";   $("#incercare").html(incercare); }
   
-  function fill_img(){ shuffle(indicii); for(var i=1;i<=4;i++) { document.getElementById("clue"+i).src="images/"+indicii[i-1]+".jpg"; }}
+  function fill_img(){ shuffle(indicii); for(var i=1;i<=4;i++)  document.getElementById("clue"+i).src="images/"+indicii[i-1]+".jpg"; }
   
   function ascunde_definitie(t){ $('#definitie').fadeOut(t); }
   
