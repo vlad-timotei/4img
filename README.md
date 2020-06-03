@@ -2,7 +2,7 @@
 <b>Grupa de vârstă: 7+ ani</b>
 
 Cărțile Bibliei s-au amestecat și au nevoie de ajutorul tău să se așeze în ordine. 
-Una din provocările copiilor din grupa mea este să rețină ordinea cărților Bibliei, iar acest joc i-a făcut să le memoreze prin joc. Memoria ta cum stă? Testeaz-o și învață cu noi!
+Una din provocările copiilor din grupa mea este să rețină ordinea cărților Bibliei, iar acest joc i-a făcut să le memoreze prin joc. Memoria ta cum stă! Testeaz-o și învață cu noi!
 
 # Cum se joacă
 
