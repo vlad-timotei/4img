@@ -28,6 +28,8 @@ Explorator pasionat de provocări și de minunile naturii.
 <hr>
 
 <i> Probleme cunoscute </i>
+
+
 0. 1 și 2 Tesaloniceni = Tesaloniceni
 1. Apocalipsa lipsesc
 2. Geneza, Cantarea Cantarilor si Plangerile lui Ieremia nu sunt
