@@ -1,13 +1,12 @@
-# Patru imagini, un cuvânt din Biblie
+# Trei cărți
 <b>Grupa de vârstă: 7+ ani</b>
 
-O activitate în care personajele biblice devin enigme ce așteaptă să fie rezolvate. 
-Jocul a apărut din dorința de a oferi copiilor din grupa mea o activitate care să le stimuleze gândirea, prin a face conexiuni logice cu relatările biblice. 
+Cărțile Bibliei s-au amestecat și au nevoie de ajutorul tău să se așeze în ordine. 
+Una din provocările copiilor din grupa mea este să rețină ordinea cărților Bibliei, iar acest joc i-a făcut să le memoreze prin joc. Memoria ta cum stă! Testeaz-o și învață cu noi!
 
 # Cum se joacă
 
-1. Privești cu atenție cele patru imagini și încearci să găsești care este elementul comun în ele. Poate să fie un personaj biblic, un obiect sau cuvânt din Biblie. 
- Citește și indiciul de sub imagini! Când găsești soluția, apeși, pe rând pe literele colorate.
+1. Privește cele două imagini și încearcă să-ți amintești, fără să te uiți în Biblie, ce carte se află între cele două cărți afșate. Citește și indiciul de sub imagini, care îți spune din ce parte a Bibliei este! Când găsești soluția, apasă, pe rând pe literele colorate.
 
 2. Dacă apeși greșit pe o literă, apeși din nou pe ea și aceasta se șterge. Poți șterge tot ce ai introdus apăsând pe butonul de resetare.
 
@@ -15,7 +14,7 @@ Jocul a apărut din dorința de a oferi copiilor din grupa mea o activitate care
 
 4. Ți se va oferi și posibilitatea de a primi ca indiciu prima literă a cuvântului. 
 
-5. Voi adăuga periodic noi niveluri, așa că te aștept chiar și după ce termini toate nivelurile.
+5. Poți să te uiți în Biblie dacă te-ai blocat la un nivel, dar asigură-te că reții cartea! 
 
 # Cu cine se joacă
 
@@ -29,7 +28,10 @@ Explorator pasionat de provocări și de minunile naturii.
 <hr>
 
 <i> Probleme cunoscute </i>
-1. La apăsarea foarte rapidă a comenzilor, efectele audio pot să nu mai ruleze.  
-2. Literele din soluție trec pe 2 rânduri atunci când cuvantul are 9 sau mai multe litere
-3. La fiecare reincarcare a jocului, literele pentru un anumit nivel se schimba; prin metoda excluderii, se pot afla literele corecte
-4. Solutia poate fi aflata din sursa codului sau prin injectare js in bara de adresa
+0. 1 și 2 Tesaloniceni = Tesaloniceni
+1. Apocalipsa lipsesc
+2. Geneza, Cantarea Cantarilor si Plangerile lui Ieremia nu sunt
+3. La apăsarea foarte rapidă a comenzilor, efectele audio pot să nu mai ruleze.  
+4. Literele din soluție trec pe 2 rânduri atunci când cuvantul are 9 sau mai multe litere
+5. La fiecare reincarcare a jocului, literele pentru un anumit nivel se schimba; prin metoda excluderii, se pot afla literele corecte
+6. Solutia poate fi aflata din sursa codului sau prin injectare js in bara de adresa
