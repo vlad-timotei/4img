@@ -639,19 +639,18 @@ function setLS(cname, cvalue) {
     localStorage.setItem(cname, cvalue);
 }
 
-function LCtoLS() {
-    if (getLS(game) == 0 && getLC(game) != 0) {
-        setLS(game, getLC(game));
-        setLC(game, "", -1);
-        setLS(game + "_mode", getLC(game + "_mode"));
-        setLC(game + "_mode", "", -1);
-        setLS(game + "_score", getLC(game + "_score"));
-        setLC(game + "_score", "", -1);
-    }
+function newDomain(data) {
+	if(getLS(game)==0){
+    var oldData=JSON.parse(data);
+	setval(game,oldData.level);
+	setval(game+"_score",oldData.score);
+	setval(game+"_mode",oldData.mode);
+	}
 }
 
-$(document).ready(function() {
-    LCtoLS();
+$(window).on("message", function(e) { newDomain(e.originalEvent.data);});
+
+$(document).ready(function() {    
     check_player();
     $("#mode").change(change_mode);
 });
