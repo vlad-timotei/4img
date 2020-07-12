@@ -645,6 +645,7 @@ function newDomain(data) {
 	setval(game,oldData.level);
 	setval(game+"_score",oldData.score);
 	setval(game+"_mode",oldData.mode);
+	check_player();
 	}
 }
 
