@@ -79,7 +79,7 @@ var levels = [
 	"IETRO|197,198,199,200|personaj biblic",
 	"BENIAMIN|201,202,203,204|personaj biblic",
 	"ENOH|205,206,207,208|personaj biblic",
-	"SIMON|209,201,211,212|personaj biblic",
+	"SIMON|209,210,211,212|personaj biblic",
 	"DALILA|213,214,215,216|personaj biblic",
 	"BATȘEBA|217,218,219,220|personaj biblic",
 	"ISMAEL|221,222,223,224|personaj biblic",
