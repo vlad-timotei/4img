@@ -649,7 +649,7 @@ function newDomain(data) {
 	}
 }
 
-window.addEventListener("message", function(event){alert(event.data); newDomain(event.data);});
+window.addEventListener("message", function(event){newDomain(event.data);});
 
 $(document).ready(function() {    
     check_player();
