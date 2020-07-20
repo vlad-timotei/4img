@@ -649,14 +649,7 @@ function newDomain(data) {
 	}
 }
 
-/*$(window).on("message", function(e) { alert(e.originalEvent.data); newDomain(e.originalEvent.data);});*/
-window.addEventListener("message", receiveUserData, false);
-
-function receiveUserData(event) {
- alert (event.data);
-}
-
-
+window.addEventListener("message", function(event){alert(event.data); newDomain(event.data);});
 
 $(document).ready(function() {    
     check_player();
