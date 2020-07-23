@@ -469,8 +469,8 @@ function check_level() {
 function put_ranking(whattype) {
     var rank = {};
     var output = "";
-    ranking = ranking.split("||", 2);
-    rank = JSON.parse(ranking[1]);
+    ranking = ranking.split("||", 3);
+    rank = JSON.parse(ranking[2]);
     for (x in rank)
         output += '<div class="row s12"><div class="col s8 offset-s1 clasn">' + rank[x]['id'] + '. ' + rank[x]['nume'] + '</div><div class="col s2 clasp">' + rank[x]['punctaj'] + '</div></div>';
     if (whattype == "short") {
@@ -485,7 +485,10 @@ function put_ranking(whattype) {
         output += "<div class='cent center'>și alți <b>" + ranking[0] + "</b> jucători</div>";
         $("#clasament-final").html(output);
     }
+	if(ranking[1]<3) {$("#firstofthem").removeClass("invisible"); $("#lastofthem").addClass("invisible"); }
+	else {$("#firstofthem").addClass("invisible"); $("#lastofthem").removeClass("invisible"); }
 }
+
 
 function get_ranking(whattype) {
     var param = {
