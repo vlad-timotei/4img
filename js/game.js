@@ -1,11 +1,12 @@
-// Un joc creat de Vlad Timotei ver.5.75@23.07.2020
+// Un joc creat de Vlad Timotei ver.5.75@24.07.2020
 var game = "4img1word_19052020F";
 var level = {}; // solution, solution_lenght, try_lenght, completed, definition, buttons_nr, timeforaudiohint, timeoforhint
 var player = {}; // name, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
 
 var btns = []; //starts with 1
 var btns_txt = []; //starts with 0
-var clues = [];
+var clues = []; 
+var preloaded_imgs = new Array();
 
 var music = {}
 music.correct = document.getElementById("s_correct");
@@ -246,6 +247,7 @@ function next() {
     clearTimeout(level.timeforaudiohint);
     clearTimeout(level.timeforhint);
     player.level++;
+	setTimeout(preload_next_images, 1000);
     setval(game, player.level);
     setval(game + "_score", player.totalscore);
     start(0);
@@ -512,7 +514,7 @@ function check_player() {
     get_ranking("short");
     player.sound = 1;
     player.olduser = 0;
-
+    preload_home_and_next_images();
     if (player.name != 0) {
         $("#noname").hide();
         $("#salut").html(", " + player.name);
@@ -522,6 +524,27 @@ function check_player() {
         $("#noname").show();
         $("#salut").html("");
     }
+}
+
+function preload_home_and_next_images(){
+	var currentlevel = levels[player.level].split('|', 3);
+	var nextlevel = levels[parseInt(player.level)+1].split('|', 3);
+	var imgs=currentlevel[1]+","+nextlevel[1];
+	var imgs_url = imgs.split(',', 8);
+    preload_imgs(imgs_url);
+}
+
+function preload_next_images(){
+	var nextlevel = levels[parseInt(player.level)+1].split('|', 3);
+	var imgs_url = nextlevel[1].split(',', 4);
+	preload_imgs(imgs_url);
+}
+
+function preload_imgs(imgs){
+	for (var i = 0; i < imgs.length; i++) {
+		preloaded_imgs[i] = new Image();
+		preloaded_imgs[i].src = "images/"+imgs[i]+".jpg";
+	}
 }
 
 function setval(cname, cvalue) {
