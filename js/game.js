@@ -505,13 +505,13 @@ function get_ranking(whattype) {
 
 }
 
-function check_player() {
+function check_player(first_check=1) {
     player.name = getval(game + "_nume");
     player.level = getval(game);
     player.totalscore = getval(game + "_score");
     check_mode();
     check_level();
-    get_ranking("short");
+    if(first_check) get_ranking("short");
     player.sound = 1;
     player.olduser = 0;
     preload_home_and_next_images();
@@ -594,7 +594,7 @@ function newDomain(data) {
 	setval(game,oldData.level);
 	setval(game+"_score",oldData.score);
 	setval(game+"_mode",oldData.mode);
-	check_player();
+	check_player(0);
 	console.log("Fetched old data: "+data);
 	}
 	
