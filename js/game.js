@@ -590,7 +590,7 @@ function setLS(cname, cvalue) {
 
 function newDomain(data) {
     var oldData=JSON.parse(data);
-	if(oldData.score!=player.score){
+	if(oldData.score!=player.totalscore){
 	setval(game,oldData.level);
 	setval(game+"_score",oldData.score);
 	setval(game+"_mode",oldData.mode);
