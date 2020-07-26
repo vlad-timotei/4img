@@ -595,8 +595,9 @@ function newDomain(data) {
 	setval(game+"_score",oldData.score);
 	setval(game+"_mode",oldData.mode);
 	check_player();
+	console.log("Fetched old data: "+data);
 	}
-	console.log("Am primit "+data);
+	
 }
 
 function check_old_data() {
