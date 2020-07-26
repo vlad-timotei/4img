@@ -514,7 +514,8 @@ function check_player(first_check=1) {
     if(first_check) get_ranking("short");
     player.sound = 1;
     player.olduser = 0;
-    preload_home_and_next_images();
+    preload_current_images();
+	preload_next_images();
     if (player.name != 0) {
         $("#noname").hide();
         $("#salut").html(", " + player.name);
@@ -526,21 +527,17 @@ function check_player(first_check=1) {
     }
 }
 
-function preload_home_and_next_images(){
+function preload_current_images(){
 	var currentlevel = levels[player.level].split('|', 3);
-	if(player.level<(levels.length-1))
-	{  var nextlevel = levels[parseInt(player.level)+1].split('|', 3);
-	   var imgs=currentlevel[1]+","+nextlevel[1];
-	}
-	else 
-	   var imgs=currentlevel;
-    preload_imgs(imgs.split(',', 8));
+	var imgs_urls=currentlevel[1].split(',', 4);
+	preload_imgs(imgs_urls);
 }
 
 function preload_next_images(){
 	if(player.level<(levels.length)){
 	var nextlevel = levels[parseInt(player.level)+1].split('|', 3);
-	preload_imgs(nextlevel[1].split(',', 4));
+	var imgs_urls=nextlevel[1].split(',', 4);
+	preload_imgs(imgs_urls);
 	}
 }
 
