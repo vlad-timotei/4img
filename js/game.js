@@ -595,12 +595,13 @@ function newDomain(data) {
 	setval(game+"_score",oldData.score);
 	setval(game+"_mode",oldData.mode);
 	check_player();
+	console.log("Am primit "+data);
 	}
 }
 
-window.addEventListener("message", function(event){newDomain(event.data);});
-
-$(document).ready(function() {    
+$(document).ready(function() { 
+    window.addEventListener("message", function(event){newDomain(event.data);});
+	document.getElementById("transfer-player-data").src = "https://raduanastase.com/fb-api/_extra/4img/TransferPlayerData.php?game=4img1word_19052020F&ver=062020";
     check_player();
     $("#mode").change(change_mode);
 });
