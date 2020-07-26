@@ -528,16 +528,20 @@ function check_player(first_check=1) {
 
 function preload_home_and_next_images(){
 	var currentlevel = levels[player.level].split('|', 3);
-	var nextlevel = levels[parseInt(player.level)+1].split('|', 3);
-	var imgs=currentlevel[1]+","+nextlevel[1];
-	var imgs_url = imgs.split(',', 8);
-    preload_imgs(imgs_url);
+	if(player.level<(levels.length-1))
+	{  var nextlevel = levels[parseInt(player.level)+1].split('|', 3);
+	   var imgs=currentlevel[1]+","+nextlevel[1];
+	}
+	else 
+	   var imgs=currentlevel;
+    preload_imgs(imgs.split(',', 8));
 }
 
 function preload_next_images(){
+	if(player.level<(levels.length)){
 	var nextlevel = levels[parseInt(player.level)+1].split('|', 3);
-	var imgs_url = nextlevel[1].split(',', 4);
-	preload_imgs(imgs_url);
+	preload_imgs(nextlevel[1].split(',', 4));
+	}
 }
 
 function preload_imgs(imgs){
