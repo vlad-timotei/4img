@@ -1,4 +1,4 @@
-// Un joc creat de Vlad Timotei ver.5.75@24.07.2020
+// Un joc creat de Vlad Timotei ver.5.75@26.07.2020
 var game = "4img1word_19052020F";
 var level = {}; // solution, solution_lenght, try_lenght, completed, definition, buttons_nr, timeforaudiohint, timeoforhint
 var player = {}; // name, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
@@ -590,10 +590,12 @@ function setLS(cname, cvalue) {
 
 function newDomain(data) {
     var oldData=JSON.parse(data);
+	if(oldData.score!=player.score){
 	setval(game,oldData.level);
 	setval(game+"_score",oldData.score);
 	setval(game+"_mode",oldData.mode);
 	check_player();
+	}
 	console.log("Am primit "+data);
 }
 
