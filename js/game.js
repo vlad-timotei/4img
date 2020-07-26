@@ -513,8 +513,8 @@ function check_player(first_check=1) {
     check_level();
     if(first_check) get_ranking("short");
     player.sound = 1;
-    player.olduser = 0;
-    preload_current_images();
+	player.olduser = 0;
+	preload_current_images();
 	preload_next_images();
     if (player.name != 0) {
         $("#noname").hide();
@@ -535,10 +535,10 @@ function preload_current_images(){
 
 function preload_next_images(){
 	if(player.level<(levels.length-1)){
-	var nextlevel = levels[parseInt(player.level)+1].split('|', 3);
-	var imgs_urls=nextlevel[1].split(',', 4);
-	preload_imgs(imgs_urls);
-	}
+		var nextlevel = levels[parseInt(player.level)+1].split('|', 3);
+		var imgs_urls=nextlevel[1].split(',', 4);
+		preload_imgs(imgs_urls);
+		}
 }
 
 function preload_imgs(imgs){
