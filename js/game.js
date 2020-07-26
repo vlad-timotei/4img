@@ -535,7 +535,7 @@ function preload_current_images(){
 
 function preload_next_images(){
 	if(player.level<(levels.length)){
-	var nextlevel = levels[parseInt(player.level)+1].split('|', 3);
+	var nextlevel = levels[parseInt(parseInt(player.level)+1)].split('|', 3);
 	var imgs_urls=nextlevel[1].split(',', 4);
 	preload_imgs(imgs_urls);
 	}
