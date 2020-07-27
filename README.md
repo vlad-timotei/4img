@@ -39,3 +39,52 @@ Explorator pasionat de provocări și de minunile naturii.
 8. Dupa setarea numelui, acesta nu apare ca si salut pe Home Page - doar dupa reincarcarea paginii. 
 9. Jocul se incarca cu datele curente si abia apoi verifica date vechi, pentru a nu depinde de serverul raduanastase.net 
 10. Preluarea datelor vechi nu se poate face in modul Incognito, chiar daca datele vechi au fost create in acea sesiune. 
+
+# Changelog
+
+<i> ver 1.0 </i> @ 2012
+- school project
+- using Ajax to fetch data from database
+- using plain html design
+- 20 levels (words)
+
+<i> ver 2.0 </i> @ 2017
+- church project
+- using JS variables to store data
+- plain html design
+- 20 levels 
+
+<i> ver 3.0 </i> @ 04.2020
+- funbible.net project
+- modern responsive design 
+- 30 levels (22 Bible characters + 8 words )
+- inbuild browser compatibility
+- difficiculty modes
+- hint added
+- sound effects
+- score added
+- stats added
+
+<i> ver 3.5 </i> @ 05.2020
+- version info added
+- 50 levels
+- use LocalStorage instead of Cookies
+- import LC to LS
+
+<i> ver 4.0 </i> @ 06.2020
+- all images are now free stock images
+- modal full screen images
+
+<i> ver 5.0 </i>@ 07.2020
+- 75 levels
+- Ranking name system
+- Name of the player required
+
+<i> ver 5.75 </i> @ 07.2020
+- code rewritten to be object orientated
+- import old data from raduanastase.com
+- preload images
+- privacy policy added
+- custom motivational message
+- optimised old data transfer
+- optimised server requests
