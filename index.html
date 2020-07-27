@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="css/style.css?ver=5.75.21072020" type="text/css" rel="stylesheet" media="all" />
+    <link href="css/style.css?ver=5.75.27072020" type="text/css" rel="stylesheet" media="all" />
   </head>
    <body>
     <!--START - Connection to FunBible.net-->
@@ -37,7 +37,10 @@
                <h5 class="header col s12 m6 offset-m3 light mb20">Bine ai venit<span id="salut"></span>! Cele patru imagini pe care le vei vedea au în comun un cuvânt. Găsește cuvântul și apoi selectează literele în ordine, pentru a forma cuvântul!</h5>
             </div>
             <div class="row center mb0">
-               <div id="noname" class="mb10"><span id="alertme"></span><span class="nl">Numele tău: </span><br/><input type="text" placeholder="Scrie numele tău aici" name="nume-participant" id="nume-participant" ><br/></div>
+               <div id="noname" class="mb10"><span id="alertme"></span><span class="nl">Numele tău: </span><br/><input type="text" placeholder="Scrie numele tău aici" name="nume-participant" id="nume-participant" ><br/>
+			    <label><input id="termsandconditions" type="checkbox" /><span>Am citit și sunt de acord cu <br/><i><a class="grey-text" href="https://docs.google.com/document/d/1JL21qeYWquP3HaMKV6k0TNsNJVEp2imjdsqUedLjriw/edit?usp=sharing" target="_new">Politica de confidențialitate</a>&nbsp; &nbsp; &nbsp;</i>
+				</span></label>
+				</div>
 			   <a class="btn-large waves-effect waves-light green darken-2 start mb20" onclick="start(1);" id="startlevel">Începe</a><br/>
                <div class="switch" ><label><span id="easy">Mod ușor</span><input type="checkbox" id="mode"><span class="lever"></span><span id="hard">Mod avansat</span></label></div>
                <br/>
@@ -196,6 +199,6 @@
 	 </script>
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="js/materialize.min.js"></script>
-      <script src="js/game.js?ver=5.75.26072020"></script>
+      <script src="js/game.js?ver=5.75.27072020TC"></script>
    </body>
 </html>

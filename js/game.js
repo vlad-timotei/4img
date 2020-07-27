@@ -1,4 +1,4 @@
-// Un joc creat de Vlad Timotei ver.5.75@26.07.2020
+// Un joc creat de Vlad Timotei ver.5.75@27.07.2020TC
 var game = "4img1word_19052020F";
 var level = {}; // solution, solution_lenght, try_lenght, completed, definition, buttons_nr, timeforaudiohint, timeoforhint
 var player = {}; // name, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
@@ -367,6 +367,11 @@ function get_player_name() {
 			$("#alertme").html("Introdu numele mai întâi!<br/>");
 			return 0;
 		}
+		if(!document.getElementById("termsandconditions").checked){
+			$("#alertme").html("Acceptă Politica de confidențialitate!</i><br/>");
+			return 0;
+		}
+        else setval(game+"_acceptedterms","yes");		
 		if(player.olduser) var param = {
 			"name": playernameinput,
 			"olduser": true,
