@@ -1,13 +1,13 @@
-// Un joc creat de Vlad Timotei ver.5.75@27.07.2020TC
+// Game created by Vlad Timotei $ver.6.0 @01.09.2020 #ro_en
 var game = "4img1word_19052020F";
-var level = {}; // solution, solution_lenght, try_lenght, completed, definition, buttons_nr, timeforaudiohint, timeoforhint
+var level = {}; // solution, solution_lenght, try_lenght, completed, definition, timeforaudiohint, timeoforhint
 var player = {}; // name, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
 
 var btns = []; //starts with 1
 var btns_txt = []; //starts with 0
 var clues = [];
 var preloaded_imgs = new Array();
-
+ 
 var music = {}
 music.correct = document.getElementById("s_correct");
 music.incorrect = document.getElementById("s_incorrect");
@@ -17,7 +17,202 @@ music.ninja = document.getElementById("s_ninja");
 music.switch_btn = document.getElementById("s_switch");
 music.hint = document.getElementById("s_hint");
 
-var levels = ["MOISE|2,4,6,8|personaj biblic", "IOSIF|1,3,5,7|personaj biblic", "AVRAAM|9,11,13,15|personaj biblic", "NOE|10,12,14,16|personaj biblic", "ESTERA|17,19,21,23|personaj biblic", "LUCA|18,20,22,24|personaj biblic", "ADAM|25,27,29,43|personaj biblic", "FARAON|44,11,17,5|personaj biblic", "IONA|8,45,46,47|personaj biblic", "DANIEL|7,50,51,24|personaj biblic", "AARON|58,56,55,57|personaj biblic", "IOAN|10,61,5,62|personaj biblic", "PETRU|72,74,73,63|personaj biblic", "LAZĂR|64,65,66,67|personaj biblic", "IUDA|68,69,70,71|personaj biblic", "IOAN|79,80,81,20|personaj biblic", "ILIE|82,83,84,85|personaj biblic", "IOV|151,28,152,153|personaj biblic", "LABAN|154,155,156,157|personaj biblic", "MATEI|158,148,30,24|personaj biblic", "SOLOMON|161,17,24,26|personaj biblic", "NEEMIA|159,160,26,24|personaj biblic", "DULCE|75,76,77,78|adjectiv", "ROȘIE|35,8,59,60|substantiv-adjectiv", "PUSTIU|11,52,54,53|substantiv-adjectiv", "BOLNAV|35,36,37,38|substantiv-adjectiv", "MARE|8,46,48,49|substantiv-adjectiv", "PLÂNS|39,40,41,42|substantiv", "GRIJĂ|33,31,32,34|substantiv", "RUGĂCIUNE|153,31,149,150|substantiv", "LOT|86,40,87,88|personaj biblic", "GHEDEON|89,90,16,91|personaj biblic", "ESAU|92,93,94,95|personaj biblic", "ABEL|96,97,98,99|personaj biblic", "RUT|100,101,102,103|personaj biblic", "NAAMAN|152,153,104,105|personaj biblic", "SAMSON|106,107,108,109|personaj biblic", "IONATAN|110,93,111,112|personaj biblic", "SAMUEL|113,114,115,116|personaj biblic", "IOSUA|117,118,119,120|personaj biblic", "GOLIAT|106,138,139,140|personaj biblic", "SARA|121,122,123,124|personaj biblic", "RAHAV|125,126,119,118|personaj biblic", "MARTA|127,128,64,66|personaj biblic", "PILAT|129,130,131,132|personaj biblic", "ABSALOM|133,17,134,135|personaj biblic", "SAUL|17,30,136,137|personaj biblic", "BALAAM|134,141,142,70|personaj biblic", "ZACHEU|71,143,144,145|personaj biblic", "ACAN|146,1,147,71|personaj biblic", "EUTIH|162,163,164,165|personaj biblic", "METUSALA|166,167,168,169|personaj biblic", "BOAZ|170,171,172,173|personaj biblic", "ELI|174,175,176,177|personaj biblic", "MEFIBOȘET|178,179,180,181|personaj biblic", "HAMAN|182,183,184,21|personaj biblic", "CALEB|185,186,187,188|personaj biblic", "EVA|189,190,191,192|personaj biblic", "NICODIM|193,194,195,196|personaj biblic", "IETRO|197,198,199,200|personaj biblic", "BENIAMIN|201,202,203,204|personaj biblic", "ENOH|205,206,207,208|personaj biblic", "SIMON|209,210,211,212|personaj biblic", "DALILA|213,214,215,216|personaj biblic", "BATȘEBA|217,218,219,220|personaj biblic", "ISMAEL|221,222,223,224|personaj biblic", "POTIFAR|225,226,227,228|personaj biblic", "BARABA|229,230,231,232|personaj biblic", "IUDA|233,234,235,236|personaj biblic", "MICAL|237,238,239,240|personaj biblic", "ȘTEFAN|241,242,243,244|personaj biblic", "MIRIAM|245,246,247,248|personaj biblic", "NEBUCADNEȚAR|249,250,251,252|personaj biblic", "BELȘAȚAR|253,254,255,256|personaj biblic", "ABNER|257,258,259,260|personaj biblic"];
+player.language=1;
+
+textdb = [
+{'level':'Nivel',
+ 'iama':'Sunt un',
+ 'findme':'Găsește-mă!',
+ 'congrats':'Felicitări',
+ 'yourscore':'Scorul tău',
+ 'tryagain':'Încearcă din nou',
+ 'clue':'Indiciu',
+ 'namealert':'Introdu numele mai întâi',
+ 'policyalert':'Acceptă Politica de confidențialitate',
+ 'pickothername':'Alege alt nume',
+ 'exists':'există deja',
+ 'startlevel':'Începe nivelul',
+ 'and':"și",
+ 'otherplayers':'alți jucători',
+ 'fullranking':'Vezi clasament',
+ 'game':'4 Imagini',
+ 'placeholder':'Scrie numele tău aici'
+ 
+},
+{'level':'Level',
+ 'iama':'I am a',
+ 'findme':'Find me!',
+ 'congrats':'Congrats',
+ 'yourscore':'Your score',
+ 'tryagain':'Try again',
+ 'clue':'Clue',
+ 'namealert':'Enter your name first',
+ 'policyalert':'Accept Privacy Policy',
+ 'pickothername':'Pick anoter name',
+ 'exists':'already exists',
+ 'startlevel':'Start level',
+ 'and':"and",
+ 'otherplayers':'other players',
+ 'fullranking':'Full ranking',
+ 'game': '4 Images',
+ 'placeholder':'Put your name here'
+}
+]
+
+var levels = [[
+    "MOISE|2,4,6,8|personaj biblic",
+    "IOSIF|1,3,5,7|personaj biblic",
+    "AVRAAM|9,11,13,15|personaj biblic",
+    "NOE|10,12,14,16|personaj biblic",
+    "ESTERA|17,19,21,23|personaj biblic",
+    "LUCA|18,20,22,24|personaj biblic",
+    "ADAM|25,27,29,43|personaj biblic",
+    "FARAON|44,11,17,5|personaj biblic",
+    "IONA|8,45,46,47|personaj biblic",
+    "DANIEL|7,50,51,24|personaj biblic",
+    "AARON|58,56,55,57|personaj biblic",
+    "IOAN|10,61,5,62|personaj biblic",
+    "PETRU|72,74,73,63|personaj biblic",
+    "LAZĂR|64,65,66,67|personaj biblic",
+    "IUDA|68,69,70,71|personaj biblic",
+    "IOAN|79,80,81,20|personaj biblic",
+    "ILIE|82,83,84,85|personaj biblic",
+    "IOV|151,28,152,153|personaj biblic",
+    "LABAN|154,155,156,157|personaj biblic",
+    "MATEI|158,148,30,24|personaj biblic",
+    "SOLOMON|161,17,24,26|personaj biblic",
+    "NEEMIA|159,160,26,24|personaj biblic",
+    "DULCE|75,76,77,78|adjectiv",
+    "ROȘIE|35,8,59,60|substantiv-adjectiv",
+    "PUSTIU|11,52,54,53|substantiv-adjectiv",
+    "BOLNAV|35,36,37,38|substantiv-adjectiv",
+    "MARE|8,46,48,49|substantiv-adjectiv",
+    "PLÂNS|39,40,41,42|substantiv",
+    "GRIJĂ|33,31,32,34|substantiv",
+    "RUGĂCIUNE|153,31,149,150|substantiv",
+    "LOT|86,40,87,88|personaj biblic",
+    "GHEDEON|89,90,16,91|personaj biblic",
+    "ESAU|92,93,94,95|personaj biblic",
+    "ABEL|96,97,98,99|personaj biblic",
+    "RUT|100,101,102,103|personaj biblic",
+    "NAAMAN|152,153,104,105|personaj biblic",
+    "SAMSON|106,107,108,109|personaj biblic",
+    "IONATAN|110,93,111,112|personaj biblic",
+    "SAMUEL|113,114,115,116|personaj biblic",
+    "IOSUA|117,118,119,120|personaj biblic",
+    "GOLIAT|106,138,139,140|personaj biblic",
+    "SARA|121,122,123,124|personaj biblic",
+    "RAHAV|125,126,119,118|personaj biblic",
+    "MARTA|127,128,64,66|personaj biblic",
+    "PILAT|129,130,131,132|personaj biblic",
+    "ABSALOM|133,17,134,135|personaj biblic",
+    "SAUL|17,30,136,137|personaj biblic",
+    "BALAAM|134,141,142,70|personaj biblic",
+    "ZACHEU|71,143,144,145|personaj biblic",
+    "ACAN|146,1,147,71|personaj biblic",
+    "EUTIH|162,163,164,165|personaj biblic",
+    "METUSALA|166,167,168,169|personaj biblic",
+    "BOAZ|170,171,172,173|personaj biblic",
+    "ELI|174,175,176,177|personaj biblic",
+    "MEFIBOȘET|178,179,180,181|personaj biblic",
+    "HAMAN|182,183,184,21|personaj biblic",
+    "CALEB|185,186,187,188|personaj biblic",
+    "EVA|189,190,191,192|personaj biblic",
+    "NICODIM|193,194,195,196|personaj biblic",
+    "IETRO|197,198,199,200|personaj biblic",
+    "BENIAMIN|201,202,203,204|personaj biblic",
+    "ENOH|205,206,207,208|personaj biblic",
+    "SIMON|209,210,211,212|personaj biblic",
+    "DALILA|213,214,215,216|personaj biblic",
+    "BATȘEBA|217,218,219,220|personaj biblic",
+    "ISMAEL|221,222,223,224|personaj biblic",
+    "POTIFAR|225,226,227,228|personaj biblic",
+    "BARABA|229,230,231,232|personaj biblic",
+    "IUDA|233,234,235,236|personaj biblic",
+    "MICAL|237,238,239,240|personaj biblic",
+    "ȘTEFAN|241,242,243,244|personaj biblic",
+    "MIRIAM|245,246,247,248|personaj biblic",
+    "NEBUCADNEȚAR|249,250,251,252|personaj biblic",
+    "BELȘAȚAR|253,254,255,256|personaj biblic",
+    "ABNER|257,258,259,260|personaj biblic"
+],[
+    "MOSES|2,4,6,8|biblical figure",
+    "JOSEPH|1,3,5,7|biblical figure",
+    "ABRAHAM|9,11,13,15|biblical figure",
+    "NOAH|10,12,14,16|biblical figure",
+    "ESTHER|17,19,21,23|biblical figure",
+    "LUKE|18,20,22,24|biblical figure",
+    "ADAM|25,27,29,43|biblical figure",
+    "PHARAOH|44,11,17,5|biblical figure",
+    "JONAH|8,45,46,47|biblical figure",
+    "DANIEL|7,50,51,24|biblical figure",
+    "AARON|58,56,55,57|biblical figure",
+    "JOHN|10,61,5,62|biblical figure",
+    "PETER|72,74,73,63|biblical figure",
+    "LAZARUS|64,65,66,67|biblical figure",
+    "JUDAS|68,69,70,71|biblical figure",
+    "JOHN|79,80,81,20|biblical figure", 
+    "ELIJAH|82,83,84,85|biblical figure",
+    "JOB|151,28,152,153|biblical figure",
+    "LABAN|154,155,156,157|biblical figure",
+    "MATTHEW|158,148,30,24|biblical figure",
+    "SOLOMON|161,17,24,26|biblical figure",
+    "NEHEMIAH|159,160,26,24|biblical figure",
+    "SWEET|75,76,77,78|adjective",
+    "RED|35,8,59,60|adjective",// adapted from ro vers. 
+    "DESERT|11,52,54,53|noun",// adapted from ro vers.
+    "SICK|35,36,37,38|adjective",
+    "SEA|8,46,16,49|noun", // changed from ro vers. + img changed
+    "CRY|39,40,41,42|noun-verb",
+    "CARE|33,31,32,34|noun",
+    "PRAYER|153,31,149,150|noun",
+    "LOT|86,40,87,88|biblical figure",
+    "GIDEON|89,90,16,91|biblical figure",
+    "ESAU|92,93,94,95|biblical figure",
+    "ABEL|96,97,98,99|biblical figure",
+    "RUTH|100,101,102,103|biblical figure",
+    "NAAMAN|152,153,104,105|biblical figure",
+    "SAMSON|106,107,108,109|biblical figure",
+    "JONATHAN|110,93,111,112|biblical figure",
+    "SAMUEL|113,114,115,116|biblical figure",
+    "JOSHUA|117,118,119,120|biblical figure",
+    "GOLIATH|106,138,139,140|biblical figure",
+    "SARAH|121,122,123,124|biblical figure",
+    "RAHAB|125,126,119,118|biblical figure",
+    "MARTHA|127,128,64,66|biblical figure",
+    "PILATE|129,130,131,132|biblical figure",
+    "ABSALOM|133,17,134,135|biblical figure",
+    "SAUL|17,30,136,137|biblical figure",
+    "BALAAM|134,141,142,70|biblical figure",
+    "ZACCHAEUS|71,143,144,145|biblical figure",
+    "ACHAN|146,1,147,71|biblical figure",
+    "EUTYCHUS|162,163,164,165|biblical figure",
+    "METHUSELAH|166,167,168,169|biblical figure",
+    "BOAZ|170,171,172,173|biblical figure",
+    "ELI|174,175,262,261|biblical figure", // img changed
+    "MEPHIBOSHETH|178,179,180,181|biblical figure",
+    "HAMAN|182,183,184,21|biblical figure",
+    "CALEB|185,186,187,188|biblical figure",
+    "EVE|189,190,191,192|biblical figure",
+    "NICODEMUS|193,194,195,196|biblical figure",
+    "JETHRO|197,264,199,263|biblical figure", // img changed
+    "BENJAMIN|201,202,203,265|biblical figure", // img changed
+    "ENOCH|266,206,207,208|biblical figure", // img changed
+    "SIMON|209,210,211,212|biblical figure",
+    "DELILAH|213,214,215,216|biblical figure",
+    "BATHSHEBA|217,218,219,220|biblical figure",
+    "ISHMAEL|221,222,223,224|biblical figure",
+    "POTIPHAR|225,226,227,228|biblical figure",
+    "BARABBAS|229,230,231,232|biblical figure",
+    "JUDAS|233,234,235,236|biblical figure",
+    "MICHAL|237,238,239,240|biblical figure",
+    "STEPHEN|241,242,243,244|biblical figure",
+    "MIRIAM|245,246,247,248|biblical figure",
+    "NEBUCHADNEZZAR|249,250,251,252|biblical figure", // mode will change to hard automatically
+    "BELSHAZZAR|253,254,255,256|biblical figure",
+    "ABNER|267,268,269,270|biblical figure" // img changed
+]];
+
 var stats = {};
 var ranking;
 
@@ -31,7 +226,7 @@ function start(fromhome) {
 		}
 	}
 	if(fromhome == 0) {
-		if(player.level >= levels.length) {
+		if(player.level >= levels[player.language].length) {
 			clearTimeout(level.timeforaudiohint);
 			show_final_score();
 			$("#game").hide(500);
@@ -50,13 +245,11 @@ function playthegame() {
 	fill_try();
 	fill_level(1);
 	fill_img();
-	fill_btns(player.mode);
 	fill_definition(0);
 }
 
 function init() {
-	init_btns();
-	var date = levels[player.level].split('|', 3);
+	var date = levels[player.language][player.level].split('|', 3);
 	level.definition = date[2];
 	clues = date[1].split(',', 4);
 	level.solution = date[0];
@@ -66,21 +259,40 @@ function init() {
 	player.tries = 0;
 	player.clue_coef = 1;
 	player.usedclue = 0;
+	do_btns(decide_mode());
+	
+}
+function do_btns(mode){
+	init_btns(mode);
+	fill_btns(mode);
 }
 
-function init_btns() {
-	var b;
-	for(var i = 1; i <= level.buttons_nr; i++) {
+function init_btns(mode) {
+	var b,limit;
+	if(mode=="hard") limit = 16; else limit = 12;
+	for(var i = 1; i <= limit; i++) {
 		btns[i] = 0;
 		b = "#" + i;
 		$(b).attr('style', "");
 	}
 }
 
+function fill_btns(mode) {
+	var i, limit;
+	if(mode=="hard") limit = 16; else limit = 12;
+	var encrypted_solution = level.solution + add_letters(limit - level.solution_lenght);
+	btns_txt = encrypted_solution.split('');
+	if(mode == "easy") btns_txt.sort(function(a, b) {
+		return a.localeCompare(b);
+	}); 
+	else btns_txt = shuffle(btns_txt);
+	for(i = 1; i <= limit; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
+}
+
 function fill_level(whatmode, txt, t) {
 	if(whatmode == 1) {
 		var niveltxt = parseInt(player.level) + 1;
-		$("#level").html("Nivel <b>" + niveltxt + "</b>").fadeIn(500);
+		$("#level").html(textdb[player.language]['level']+" <b>" + niveltxt + "</b>").fadeIn(500);
 	} else $('#level').html(txt).fadeIn(t);
 }
 
@@ -104,23 +316,15 @@ function hide_definition(t) {
 }
 
 function fill_definition(t) {
-	$('#definition').html("Sunt un " + level.definition + "! Găsește-mă!").fadeIn(t);
-}
-
-function fill_btns(whatmode) {
-	var i;
-	var encrypted_solution = level.solution + add_letters(level.buttons_nr - level.solution_lenght);
-	btns_txt = encrypted_solution.split('');
-	if(whatmode == "easy") btns_txt.sort(function(a, b) {
-		return a.localeCompare(b);
-	});
-	else btns_txt = shuffle(btns_txt);
-	for(i = 1; i <= level.buttons_nr; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
+	$('#definition').html(textdb[player.language]['iama'] +" "+ level.definition + "! "+textdb[player.language]['findme']).fadeIn(t);
 }
 
 function add_letters(n) {
 	var text = "";
-	var possible = "AĂÂBCDEFGHIÎLMNOPRSȘTȚUVXZ";
+	if(player.language)
+		var possible = "ABCDEFGHILMNOPRSTUVXZ";
+	else 
+		var possible = "AĂÂBCDEFGHIÎLMNOPRSȘTȚUVXZ";
 	for(var i = 0; i < n; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
 	return text;
 }
@@ -198,15 +402,15 @@ function check_player_try() {
 }
 
 function display_message(t, type) {
-	if(type == 1) $('#definition').html("<b class='succes'>Felicitări, " + player.name + "!</b> Scorul tău: <b>" + player.totalscore + "</b>").fadeIn(t);
-	else $("#definition").html("<b class='error'>Mai încearcă!</b>").fadeIn(t);
+	if(type == 1) $('#definition').html("<b class='succes'>"+textdb[player.language]['congrats']+", " + player.name + "!</b> "+textdb[player.language]['yourscore']+": <b>" + player.totalscore + "</b>").fadeIn(t);
+	else $("#definition").html("<b class='error'>"+textdb[player.language]['tryagain']+"!</b>").fadeIn(t);
 }
 
 function reset_game() {
 	if(level.try_lenght != 0) {
 		level.try_lenght = 0;
 		fill_try();
-		init_btns();
+		init_btns(decide_mode());
 		setTimeout(eplay, 10, music.pull_letter);
 		$(".reset").removeClass("resetactiv");
 	}
@@ -234,7 +438,8 @@ function next() {
 		"mod": player.mode,
 		"cuv": level.solution,
 		"nume": player.name,
-		"scor": player.totalscore
+		"scor": player.totalscore,
+		"lang": player.language
 	};
 	send_stats();
 	clearTimeout(level.timeforaudiohint);
@@ -259,6 +464,7 @@ function info(x) {
 		}
 	}
 }
+
 
 function ranking_page(x) {
 	setTimeout(eplay, 10, music.ninja);
@@ -299,7 +505,7 @@ function switch_sound() {
 
 function get_clue() {
 	hide_nivel(250);
-	setTimeout(fill_level, 245, 2, "<b class='mesajindiciu' onClick='show_clue();'>Indiciu!</b>", 500);
+	setTimeout(fill_level, 245, 2, "<b class='mesajindiciu' onClick='show_clue();'>"+textdb[player.language]['clue']+"!</b>", 500);
 }
 
 function show_clue() {
@@ -309,7 +515,7 @@ function show_clue() {
 	var y = level.solution.split("");
 	var usertry = y[0] + " ";
 	level.try_lenght = 1;
-	init_btns();
+	init_btns(decide_mode());
 	for(var i = 2; i <= level.solution_lenght; i++) usertry = usertry + "_ ";
 	$("#usertry").html(usertry);
 	$('#level').fadeOut(250);
@@ -337,7 +543,7 @@ function scor() {
 function show_final_score() {
 	$("#scor_total").html(player.totalscore);
 	get_ranking("final");
-	$("#finalcongrats").html("Felicitări, " + player.name + "!");
+	$("#finalcongrats").html(textdb[player.language]['congrats']+", " + player.name + "!");
 }
 
 function send_stats() {
@@ -364,11 +570,11 @@ function get_player_name() {
 	if(player.name == 0) {
 		var playernameinput = document.getElementById("nume-participant").value;
 		if(playernameinput == "") {
-			$("#alertme").html("Introdu numele mai întâi!<br/>");
+			$("#alertme").html(textdb[player.language]['namealert']+"!<br/>"); 
 			return 0;
 		}
 		if(!document.getElementById("termsandconditions").checked){
-			$("#alertme").html("Acceptă Politica de confidențialitate!</i><br/>");
+			$("#alertme").html(textdb[player.language]['policyalert']+"!</i><br/>");
 			return 0;
 		}
         else setval(game+"_acceptedterms","yes");		
@@ -396,7 +602,7 @@ function get_player_name() {
 			player.name = playernameinput;
 			player.olduser = 0;
 		} else {
-			$("#alertme").html("Alege alt nume! " + playernameinput + " există deja ! <br/>");
+			$("#alertme").html(textdb[player.language]['pickothername']+"! " + playernameinput + "  "+textdb[player.language]['exists']+" ! <br/>");
 			return 0;
 		}
 	}
@@ -409,72 +615,90 @@ function eplay(effect) {
 }
 
 function check_mode() {
-	player.mode = getval(game + "_mode");
+	player.mode=getval(game + "_mode");
 	if(player.mode == 0) player.mode = "easy";
-	if(player.mode == "hard") $("#mode").prop('checked', true);
-	else $("#mode").prop('checked', false);
-	set_mode();
+	if(player.mode == "hard") {$("#mode").prop('checked', true); mode_hard_design(); }
+	else { $("#mode").prop('checked', false); mode_easy_design(); }
+    setval(game + "_mode", player.mode);
 }
 
 function change_mode() {
-	if($("#mode").is(":checked")) player.mode = "hard";
-	else player.mode = "easy";
+	if($("#mode").is(":checked"))
+	{player.mode = "hard"; mode_hard_design(); }
+	else 
+	{player.mode = "easy"; mode_easy_design(); }
 	eplay(music.switch_btn);
-	set_mode();
+	setval(game + "_mode", player.mode);
 }
 
-function set_mode() {
-	if($("#mode").is(":checked")) {
-		player.mode = "hard";
-		level.buttons_nr = 16;
+function mode_hard_design() {
+	$(".hard").addClass("modactiv");
+	$(".easy").removeClass("modactiv");
+}
+
+function mode_easy_design() {
+	$(".easy").addClass("modactiv");
+    $(".hard").removeClass("modactiv");
+}
+
+function set_mode(forcemode) {
+	if(player.mode == "hard"||forcemode=="hard") {
 		$("#he1").addClass("offset-m2");
 		$("#he1").removeClass("offset-m3");
 		$("#e2").removeClass("offset-m3");
 		$("#h2").addClass("offset-m2");
 		$(".hard-letter").removeClass("invisible");
-		$("#hard").addClass("modactiv");
-		$("#easy").removeClass("modactiv");
-	} else {
-		player.mode = "easy";
-		level.buttons_nr = 12;
+		player.activemode="hard";
+	} else if(player.mode == "easy"||forcemode=="easy") {
 		$("#he1").removeClass("offset-m2");
 		$("#he1").addClass("offset-m3");
 		$("#e2").addClass("offset-m3");
 		$("#h2").removeClass("offset-m2");
 		$(".hard-letter").addClass("invisible");
-		$("#easy").addClass("modactiv");
-		$("#hard").removeClass("modactiv");
+		player.activemode="easy";
 	}
-	setval(game + "_mode", player.mode);
+	
 }
+
+function decide_mode(){
+	if(level.solution_lenght>12)
+	{  if(player.activemode!="hard") set_mode("hard");
+		return "hard";
+	}
+	else 
+	{  if(player.activemode!=player.mode) set_mode(player.mode); 
+       return player.mode;
+    }
+}
+
 
 function check_level() {
 	var startlevel = parseInt(player.level) + 1;
-	if(player.level >= levels.length) {
+	if(player.level >= levels[player.language].length) {
 		show_final_score();
 		clearTimeout(level.timeforaudiohint);
 		$("#startgame").hide();
 		$("#endgame").show(1000);
 	} else if(startlevel == 1) $("#startlevel").html("START");
-	else $("#startlevel").html("Începe nivelul " + startlevel);
+	else $("#startlevel").html(textdb[player.language]['startlevel']+" " + startlevel);
 }
 
 function put_ranking(whattype) {
-	var rank = {};
+	var rank = {}; 
 	var output = "";
 	ranking = ranking.split("||", 3);
 	rank = JSON.parse(ranking[2]);
 	for(x in rank) output += '<div class="row s12"><div class="col s8 offset-s1 clasn">' + rank[x]['id'] + '. ' + rank[x]['nume'] + '</div><div class="col s2 clasp">' + rank[x]['punctaj'] + '</div></div>';
 	if(whattype == "short") {
-		output += '<span onclick="javascript:ranking_page();" class="link-clasament" ><i>și alți <b>' + ranking[0] + '</b> jucători | Vezi clasament </i></span>';
+		output += '<span onclick="javascript:ranking_page();" class="link-clasament" ><i>'+textdb[player.language]['and']+' <b>' + ranking[0] + '</b> '+textdb[player.language]['otherplayers']+' | '+textdb[player.language]['fullranking']+'  </i></span>';
 		$("#clasament").html(output);
 	}
 	if(whattype == "full") {
-		output += "<div class='cent center'>și alți <b>" + ranking[0] + "</b> jucători</div>";
+		output += "<div class='cent center'>"+textdb[player.language]['and']+" <b>" + ranking[0] + "</b> "+textdb[player.language]['otherplayers']+"</div>";
 		$("#clasament-complet").html(output);
 	}
 	if(whattype == "final") {
-		output += "<div class='cent center'>și alți <b>" + ranking[0] + "</b> jucători</div>";
+		output += "<div class='cent center'>"+textdb[player.language]['and']+" <b>" + ranking[0] + "</b> "+textdb[player.language]['otherplayers']+"</div>";
 		$("#clasament-final").html(output);
 	}
 	if(ranking[1] < 4) {
@@ -520,14 +744,14 @@ function check_player(first_check = 1) {
 }
 
 function preload_current_images() {
-	var currentlevel = levels[player.level].split('|', 3);
+	var currentlevel = levels[player.language][player.level].split('|', 3);
 	var imgs_urls = currentlevel[1].split(',', 4);
 	preload_imgs(imgs_urls);
 }
 
 function preload_next_images() {
-	if(player.level < (levels.length - 1)) {
-		var nextlevel = levels[parseInt(player.level) + 1].split('|', 3);
+	if(player.level < (levels[player.language].length - 1)) {
+		var nextlevel = levels[player.language][parseInt(player.level) + 1].split('|', 3);
 		var imgs_urls = nextlevel[1].split(',', 4);
 		preload_imgs(imgs_urls);
 	}
@@ -600,8 +824,52 @@ function check_old_data() {
 		document.getElementById("transfer-player-data").src = "https://raduanastase.com/fb-api/_extra/4img/TransferPlayerData.php?game=4img1word_19052020F&ver=072020";
 	}
 }
+
+function load_language(lang){
+	var langRo = $('.lang-ro');
+    var langEn = $('.lang-en');
+	
+	if(lang=="ro")
+	{player.language=0;
+	langEn.hide();
+    langRo.show();
+	}
+	
+	if(lang=="en")
+	{player.language=1;
+	langEn.show();
+    langRo.hide();
+	}
+	
+	check_player();
+}
+
+function change_language(lang){
+	player.language=lang;
+	setval(game + "_language", lang);
+	$("#startgame").hide(500);
+	eplay(music.ninja);
+	$("#startgame").show(500);
+	setTimeout(load_language,500,lang);
+}
+
+function load_game(){
+	player.language = getval(game + "_language");
+	if(player.language==0) { player.language="ro"; setval(game + "_language","ro"); }
+	load_language(player.language); 
+}
+
+
+
+function load_game_events(){
+
+	$("#mode").change(change_mode);
+	
+}
+
 $(document).ready(function() {
 	check_old_data();
-	check_player();
-	$("#mode").change(change_mode);
+	load_game();
+	load_game_events();
+	
 });

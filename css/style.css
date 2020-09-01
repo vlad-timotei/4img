@@ -55,6 +55,11 @@ h1,
 	background-color: rgb(13, 71, 161);
 }
 
+
+#changetoen, #changetoro { cursor: pointer; }
+.change_language, .account_logo {font-style:italic; color:grey; cursor: pointer;}
+
+
 .nl {
 	font-size: 1.54em;
 	font-weight: 300;
