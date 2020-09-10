@@ -88,3 +88,9 @@ Explorator pasionat de provocări și de minunile naturii.
 - custom motivational message
 - optimised old data transfer
 - optimised server requests
+
+<i> ver 6.0 </i> @ 09.2020
+- 75 levels in 2 languages
+- en_EN package implemented
+- temporary change mode when solution is longer
+- optimised code and fixed bugs
