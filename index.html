@@ -16,10 +16,11 @@
     <meta property="og:locale" content="ro_RO">
     <meta property="keywords" content="jocuri biblice,jocuri crestine,activitati crestine,activitati biblice,pagini de colorat biblice,pagini de colorat crestine,jocuri de sabat,activitati de sabat,desene biblice,desene de sabat,desene crestine">
     <link rel="icon" type="image/x-icon" href="https://funbible.net/favicon.ico">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style>.invisible, .lang-en {display: none;}</style>
+	<link href="css/style.css?ver=6.0.10092020" type="text/css" rel="stylesheet" media="all" />
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="css/style.css?ver=6.0.01092020" type="text/css" rel="stylesheet" media="all" />
+	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
    <body>
     <!--START - Connection to FunBible.net-->
@@ -30,7 +31,7 @@
       <img src="https://funbible.net/assets/logo.svg" height="60" />
     </a>
     <!--END - Connection to FunBible.net-->
-      <div class="section no-pad-bot" id="startgame">
+      <div class="section no-pad-bot invisible" id="startgame">
          <div class="container">
             <h1 class="header titlu-joc center blue-text text-darken-4 lang-ro">4 Imagini</h1>
 			<h1 class="header titlu-joc center blue-text text-darken-4 lang-en">4 Images</h1>
@@ -148,8 +149,9 @@
       </div>
       <div class="invisible section no-pad-bot" id="endgame">
          <div class="container">
-            <h1 class="header center blue-text text-darken-4" id="finalcongrats"><span class="lang-ro">Felicitări!</span><span class="lang-en">Congratulations!</span></h1>
-            <div class="row center">
+            <h3 class="header center blue-text text-darken-4" id="finalcongrats"><span class="lang-ro">Felicitări, </span><span class="lang-en">Congrats, </span></h3>
+            <h2 id="finalcongrats-name" class="center blue-text text-darken-4"></h2>
+			<div class="row center">
                <h5 class="header col s12 light"><span class="lang-ro">Ai terminat toate nivelurile acestui joc cu un scor total de</span><span class="lang-en">You completed all levels with a total score of</span> <b id="scor_total">100</b> puncte! <br/><br/><span class="lang-ro">Poți începe din nou, dar scorul și numele se vor reseta. Revino pe această pagină când anunțăm că am adăugat niveluri noi și poți continua de unde ai rămas!</span><span  class="lang-en">You can start again, but your score and name will reset! Come back on this page when we will announce future levels releases and you will be able to continue where you left! </span></h5>
 			   <b class="clasament-title"><span class="lang-ro">Clasament</span><span class="lang-en">Ranking</span></b>
                <br/>
@@ -249,6 +251,6 @@
 	 </script>
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="js/materialize.min.js"></script>
-      <script src="js/game.js?ver=6.0.01092020"></script>
+      <script src="js/game.js?ver=6.0.10092020"></script>
    </body>
 </html>

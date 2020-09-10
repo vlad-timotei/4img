@@ -3,9 +3,7 @@ h1,
 	font-family: 'Alfa Slab One', cursive !important;
 }
 
-.invisible {
-	display: none;
-}
+
 
 .cent {
 	margin: 0px auto;
@@ -24,9 +22,7 @@ h1,
 	margin-bottom: 0px;
 }
 
-#startgame {
-	display: block;
-}
+
 
 .titlu-joc {
 	font-size: 4em;
@@ -319,4 +315,12 @@ h1,
 	line-height: 14px;
 	margin-right: 10px;
 	vertical-align: middle;
+}
+
+#finalcongrats-name {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 0 10px 15px;
+	font-size: 2em;
+    line-height: 1.5em;
 }

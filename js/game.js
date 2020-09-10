@@ -22,7 +22,7 @@ player.language=1;
 textdb = [
 {'level':'Nivel',
  'iama':'Sunt un',
- 'findme':'Găsește-mă!',
+ 'findme':'Cine sunt?',
  'congrats':'Felicitări',
  'yourscore':'Scorul tău',
  'tryagain':'Încearcă din nou',
@@ -41,7 +41,7 @@ textdb = [
 },
 {'level':'Level',
  'iama':'I am a',
- 'findme':'Find me!',
+ 'findme':'Who am I?',
  'congrats':'Congrats',
  'yourscore':'Your score',
  'tryagain':'Try again',
@@ -543,7 +543,7 @@ function scor() {
 function show_final_score() {
 	$("#scor_total").html(player.totalscore);
 	get_ranking("final");
-	$("#finalcongrats").html(textdb[player.language]['congrats']+", " + player.name + "!");
+	$("#finalcongrats-name").html(player.name+"!");
 }
 
 function send_stats() {
@@ -671,7 +671,6 @@ function decide_mode(){
     }
 }
 
-
 function check_level() {
 	var startlevel = parseInt(player.level) + 1;
 	if(player.level >= levels[player.language].length) {
@@ -679,8 +678,10 @@ function check_level() {
 		clearTimeout(level.timeforaudiohint);
 		$("#startgame").hide();
 		$("#endgame").show(1000);
+		return 0; 
 	} else if(startlevel == 1) $("#startlevel").html("START");
 	else $("#startlevel").html(textdb[player.language]['startlevel']+" " + startlevel);
+	$("#startgame").show();
 }
 
 function put_ranking(whattype) {
@@ -744,9 +745,11 @@ function check_player(first_check = 1) {
 }
 
 function preload_current_images() {
+	if(player.level < (levels[player.language].length)){
 	var currentlevel = levels[player.language][player.level].split('|', 3);
 	var imgs_urls = currentlevel[1].split(',', 4);
 	preload_imgs(imgs_urls);
+	}
 }
 
 function preload_next_images() {
