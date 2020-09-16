@@ -134,7 +134,32 @@ var levels = [[
     "MIRIAM|245,246,247,248|personaj biblic",
     "NEBUCADNEȚAR|249,250,251,252|personaj biblic",
     "BELȘAȚAR|253,254,255,256|personaj biblic",
-    "ABNER|257,258,259,260|personaj biblic"
+    "ABNER|257,258,259,260|personaj biblic",
+	"ANANIA|314,315,316,317|personaj biblic",
+	"RAHELA|275,276,277,279|personaj biblic", 
+	"URIE|271,272,273,274|personaj biblic",
+	"IACOV|301,302,303,304|personaj biblic",
+	"ELISABETA|284,285,286,287|personaj biblic",
+	"TOMA|288,289,290,291|personaj biblic",
+	"SILA|292,293,294,295|personaj biblic",
+	"SEM|296,298,299,300|personaj biblic", 
+	"IOSIF|280,281,282,283|personaj biblic",
+	"AGAR|305,306,308,309|personaj biblic", 
+	"ȘADRAC|334,335,336,337|personaj biblic",
+	"MARDOHEU|363,364,365,366|personaj biblic",
+	"CAIN|310,311,312,313|personaj biblic",
+	"MARIA|326,327,328,329|personaj biblic",
+	"SAFIRA|354,355,357,358|personaj biblic", 
+	"IROD|342,343,344,345|personaj biblic",
+	"LEA|346,347,348,277|personaj biblic",
+	"ISUS|330,331,332,333|personaj biblic",
+	"DORCA|349,350,351,353|personaj biblic", 
+	"ABIGAIL|338,339,340,341|personaj biblic",
+	"NATAN|318,319,320,321|personaj biblic",
+	"DINA|359,360,361,220|personaj biblic",
+	"AMOS|322,323,324,325|personaj biblic",
+	"CORE|367,368,369,370|personaj biblic",
+	"EHUD|371,372,373,304|personaj biblic"
 ],[
     "MOSES|2,4,6,8|biblical figure",
     "JOSEPH|1,3,5,7|biblical figure",
@@ -159,10 +184,10 @@ var levels = [[
     "SOLOMON|161,17,24,26|biblical figure",
     "NEHEMIAH|159,160,26,24|biblical figure",
     "SWEET|75,76,77,78|adjective",
-    "RED|35,8,59,60|adjective",// adapted from ro vers. 
-    "DESERT|11,52,54,53|noun",// adapted from ro vers.
+    "RED|35,8,59,60|adjective",
+    "DESERT|11,52,54,53|noun",
     "SICK|35,36,37,38|adjective",
-    "SEA|8,46,16,49|noun", // changed from ro vers. + img changed
+    "SEA|8,46,16,49|noun", 
     "CRY|39,40,41,42|noun-verb",
     "CARE|33,31,32,34|noun",
     "PRAYER|153,31,149,150|noun",
@@ -189,15 +214,15 @@ var levels = [[
     "EUTYCHUS|162,163,164,165|biblical figure",
     "METHUSELAH|166,167,168,169|biblical figure",
     "BOAZ|170,171,172,173|biblical figure",
-    "ELI|174,175,262,261|biblical figure", // img changed
+    "ELI|174,175,262,261|biblical figure", 
     "MEPHIBOSHETH|178,179,180,181|biblical figure",
     "HAMAN|182,183,184,21|biblical figure",
     "CALEB|185,186,187,188|biblical figure",
     "EVE|189,190,191,192|biblical figure",
     "NICODEMUS|193,194,195,196|biblical figure",
-    "JETHRO|197,264,199,263|biblical figure", // img changed
-    "BENJAMIN|201,202,203,265|biblical figure", // img changed
-    "ENOCH|266,206,207,208|biblical figure", // img changed
+    "JETHRO|197,264,199,263|biblical figure", 
+    "BENJAMIN|201,202,203,265|biblical figure", 
+    "ENOCH|266,206,207,208|biblical figure", 
     "SIMON|209,210,211,212|biblical figure",
     "DELILAH|213,214,215,216|biblical figure",
     "BATHSHEBA|217,218,219,220|biblical figure",
@@ -210,7 +235,32 @@ var levels = [[
     "MIRIAM|245,246,247,248|biblical figure",
     "NEBUCHADNEZZAR|249,250,251,252|biblical figure", // mode will change to hard automatically
     "BELSHAZZAR|253,254,255,256|biblical figure",
-    "ABNER|267,268,269,270|biblical figure" // img changed
+    "ABNER|267,268,269,270|biblical figure" 
+	"ANANIAS|314,315,316,317|personaj biblic",
+	"RACHEL|275,276,278,279|personaj biblic", 
+	"URIAH|271,272,273,274|personaj biblic",
+	"JACOB|301,302,303,304|personaj biblic",
+	"ELIZABETH|284,285,286,287|personaj biblic",
+	"THOMAS|288,289,290,291|personaj biblic",
+	"SILAS|292,293,294,295|personaj biblic",
+	"SHEM|297,298,299,300|personaj biblic", 
+	"JOSEPH|280,281,282,283|personaj biblic",
+	"HAGAR|305,307,308,309|personaj biblic", 
+	"SHADRACH|334,335,336,337|personaj biblic",
+	"MORDECAI|362,364,365,366|personaj biblic",
+	"CAIN|310,311,312,313|personaj biblic",
+	"MARY|326,327,328,329|personaj biblic",
+	"SAPPHIRA|354,356,357,358|personaj biblic", 
+	"HEROD|342,343,344,345|personaj biblic",
+	"LEAH|346,347,348,277|personaj biblic",
+	"JESUS|330,331,332,333|personaj biblic",
+	"DORCAS|349,350,352,353|personaj biblic", 
+	"ABIGAIL|338,339,340,341|personaj biblic",
+	"NATHAN|318,319,320,321|personaj biblic",
+	"DINAH|359,360,361,220|personaj biblic",
+	"AMOS|322,323,324,325|personaj biblic",
+	"KORAH|367,368,369,370|personaj biblic",
+	"EHUD|371,372,373,304|personaj biblic"
 ]];
 
 var stats = {};
