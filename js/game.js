@@ -235,7 +235,7 @@ var levels = [[
     "MIRIAM|245,246,247,248|biblical figure",
     "NEBUCHADNEZZAR|249,250,251,252|biblical figure", // mode will change to hard automatically
     "BELSHAZZAR|253,254,255,256|biblical figure",
-    "ABNER|267,268,269,270|biblical figure" 
+    "ABNER|267,268,269,270|biblical figure", 
 	"ANANIAS|314,315,316,317|personaj biblic",
 	"RACHEL|275,276,278,279|personaj biblic", 
 	"URIAH|271,272,273,274|personaj biblic",
