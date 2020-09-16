@@ -90,7 +90,8 @@ Explorator pasionat de provocări și de minunile naturii.
 - optimised server requests
 
 <i> ver 6.0 </i> @ 09.2020
-- 75 levels in 2 languages
+- 100 levels in 2 languages
 - en_EN package implemented
 - temporary change mode when solution is longer
 - optimised code and fixed bugs
+- beautify statistics
