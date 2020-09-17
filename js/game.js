@@ -331,7 +331,7 @@ function init_btns(mode) {
 }
 
 function fill_btns(mode) {
-	var i, level_key;
+	var i, limit, level_key;
 	
 	/*
 	level_key=getval(game+"_key");
@@ -349,12 +349,13 @@ function fill_btns(mode) {
 	var encrypted_solution_hard = encrypted_solution_easy + add_letters(4);
 	
 	if(mode == "easy"){
+		limit=12;
 		btns_txt = encrypted_solution_easy.split('');
 		btns_txt.sort(function(a, b) {return a.localeCompare(b);	}); 
 	}
-	else 
-		btns_txt = shuffle(encrypted_solution_hard.split(''));
-	
+	else { 
+		limit=16; btns_txt = shuffle(encrypted_solution_hard.split(''));
+	}
 	setval(game+"_key",player.level+"#"+encrypted_solution_easy+"#"+encrypted_solution_hard);
 	
 	for(i = 1; i <= limit; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
