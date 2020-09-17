@@ -236,31 +236,31 @@ var levels = [
         "NEBUCHADNEZZAR|249,250,251,252|biblical figure", // mode will change to hard automatically
         "BELSHAZZAR|253,254,255,256|biblical figure",
         "ABNER|267,268,269,270|biblical figure",
-        "ANANIAS|314,315,316,317|personaj biblic",
-        "RACHEL|275,276,278,279|personaj biblic",
-        "URIAH|271,272,273,274|personaj biblic",
-        "JACOB|301,302,303,304|personaj biblic",
-        "ELIZABETH|284,285,286,287|personaj biblic",
-        "THOMAS|288,289,290,291|personaj biblic",
-        "SILAS|292,293,294,295|personaj biblic",
-        "SHEM|297,298,299,300|personaj biblic",
-        "JOSEPH|280,281,282,283|personaj biblic",
-        "HAGAR|305,307,308,309|personaj biblic",
-        "SHADRACH|334,335,336,337|personaj biblic",
-        "MORDECAI|362,364,365,366|personaj biblic",
-        "CAIN|310,311,312,313|personaj biblic",
-        "MARY|326,327,328,329|personaj biblic",
-        "SAPPHIRA|354,356,357,358|personaj biblic",
-        "HEROD|342,343,344,345|personaj biblic",
-        "LEAH|346,347,348,277|personaj biblic",
-        "JESUS|330,331,332,333|personaj biblic",
-        "DORCAS|349,350,352,353|personaj biblic",
-        "ABIGAIL|338,339,340,341|personaj biblic",
-        "NATHAN|318,319,320,321|personaj biblic",
-        "DINAH|359,360,361,220|personaj biblic",
-        "AMOS|322,323,324,325|personaj biblic",
-        "KORAH|367,368,369,370|personaj biblic",
-        "EHUD|371,372,373,304|personaj biblic"
+        "ANANIAS|314,315,316,317|biblical figure",
+        "RACHEL|275,276,278,279|biblical figure",
+        "URIAH|271,272,273,274|biblical figure",
+        "JACOB|301,302,303,304|biblical figure",
+        "ELIZABETH|284,285,286,287|biblical figure",
+        "THOMAS|288,289,290,291|biblical figure",
+        "SILAS|292,293,294,295|biblical figure",
+        "SHEM|297,298,299,300|biblical figure",
+        "JOSEPH|280,281,282,283|biblical figure",
+        "HAGAR|305,307,308,309|biblical figure",
+        "SHADRACH|334,335,336,337|biblical figure",
+        "MORDECAI|362,364,365,366|biblical figure",
+        "CAIN|310,311,312,313|biblical figure",
+        "MARY|326,327,328,329|biblical figure",
+        "SAPPHIRA|354,356,357,358|biblical figure",
+        "HEROD|342,343,344,345|biblical figure",
+        "LEAH|346,347,348,277|biblical figure",
+        "JESUS|330,331,332,333|biblical figure",
+        "DORCAS|349,350,352,353|biblical figure",
+        "ABIGAIL|338,339,340,341|biblical figure",
+        "NATHAN|318,319,320,321|biblical figure",
+        "DINAH|359,360,361,220|biblical figure",
+        "AMOS|322,323,324,325|biblical figure",
+        "KORAH|367,368,369,370|biblical figure",
+        "EHUD|371,372,373,304|biblical figure"
     ]
 ];
 
@@ -355,6 +355,8 @@ function fill_try() {
 	var usertry = "";
 	for(var i = 1; i <= level.solution_lenght; i++) usertry = usertry + "_ ";
 	$("#usertry").html(usertry);
+	var usertrysize=1.8+0.15*(14-level.solution_lenght);
+	$("#usertry").css("font-size",usertrysize+"em");
 }
 
 function fill_img() {
@@ -619,7 +621,7 @@ function close_modal() {
 function get_player_name() {
 	var availablename;
 	if(player.name == 0) {
-		var playernameinput = document.getElementById("nume-participant").value;
+		var playernameinput = document.getElementById("nume-participant").value.replace(/\s+/g, '');
 		if(playernameinput == "") {
 			$("#alertme").html(textdb[player.language]['namealert']+"!<br/>"); 
 			return 0;
