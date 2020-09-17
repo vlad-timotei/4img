@@ -1,4 +1,4 @@
-// Game created by Vlad Timotei $ver.6.0 @16.09.2020 #ro_en100
+// Game created by Vlad Timotei $ver.6.0 @17.09.2020 #ro_en100
 var game = "4img1word_19052020F";
 var level = {}; // solution, solution_lenght, try_lenght, completed, definition, timeforaudiohint, timeoforhint
 var player = {}; // name, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
