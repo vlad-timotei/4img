@@ -560,7 +560,7 @@ function home() {
 		clearTimeout(level.timeforaudiohint);
 		setTimeout(eplay, 10, music.ninja);
 		check_level();
-		$("#game").hide(500);
+		$("#game").hide(250);
 		$("#startgame").show(500);
 	}
 }
