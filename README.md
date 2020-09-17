@@ -94,4 +94,4 @@ Explorator pasionat de provocări și de minunile naturii.
 - solution font-size responsive to level solution size
 - name is now displayed right after registration without refresh needed
 - level letters are stored btw easy-hard-refresh mode to prevent cheating
-- injection prevention inmplemented
+- injection prevention implemented
