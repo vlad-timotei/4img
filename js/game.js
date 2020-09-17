@@ -353,7 +353,7 @@ function fill_btns(mode) {
 		btns_txt.sort(function(a, b) {return a.localeCompare(b);	}); 
 	}
 	else 
-		btns_txt = shuffle(encrypted_solution_hard.split(''););
+		btns_txt = shuffle(encrypted_solution_hard.split(''));
 	
 	setval(game+"_key",player.level+"#"+encrypted_solution_easy+"#"+encrypted_solution_hard);
 	
