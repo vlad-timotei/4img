@@ -689,8 +689,8 @@ function get_player_name() {
 }
 
 function sanitizename(s) {
-   var diacritics = ["ă", "â", "ș", "ț", "î", "Ă", "Â", "Ș", "Ț", "Î", "#","$"];
-   var chars = ["a", "a", "s", "t", "i", "A","A", "S", "T", "I", "", ""];
+   var diacritics = ["ă", "â", "ș", "ț", "î", "Ă", "Â", "Ș", "Ț", "Î", "#","$","'",'"'];
+   var chars = ["a", "a", "s", "t", "i", "A","A", "S", "T", "I", "", "","",""];
 				for (var i = 0; i < diacritics.length; i++) {
 					s = s.split(diacritics[i]).join(chars[i]);
 				}
