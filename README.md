@@ -29,11 +29,10 @@ Explorator pasionat de provocări și de minunile naturii.
 <hr>
 
 <i> Probleme cunoscute </i>
-1. La fiecare reincarcare a jocului, literele pentru un anumit nivel se schimba; prin metoda excluderii, se pot afla literele corecte
-2. Solutia poate fi aflata din sursa codului sau prin injectare js in bara de adresa
-3. Setarea numelui nu se poate face fara acces la serverul vladtimotei.ro
-4. Chrome cere favicon.ico la fiecare efect sonor
-5. Preluarea datelor vechi nu se poate face in modul Incognito, chiar daca datele vechi au fost create in acea sesiune. 
+1. Solutia poate fi aflata din sursa codului sau prin injectare js in bara de adresa
+2. Setarea numelui nu se poate face fara acces la serverul vladtimotei.ro
+3. Chrome cere favicon.ico la fiecare efect sonor
+4. Preluarea datelor vechi nu se poate face in modul Incognito, chiar daca datele vechi au fost create in acea sesiune. 
 
 # Changelog
 
@@ -94,3 +93,4 @@ Explorator pasionat de provocări și de minunile naturii.
 - fixed multiple sound bug
 - solution font-size responsive to level solution size
 - name is now displayed right after registration without refresh needed
+- level letters are stored btw easy-hard-refresh mode to prevent cheating
