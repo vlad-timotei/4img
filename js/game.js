@@ -455,7 +455,7 @@ function check_player_try() {
 }
 
 function display_message(t, type) {
-	if(type == 1) $('#definition').html("<b class='succes'>"+textdb[player.language]['congrats']+", " + player.name + "!</b> "+textdb[player.language]['yourscore']+": <b>" + player.totalscore + "</b>").fadeIn(t);
+	if(type == 1) $('#definition').html("<b class='succes'>"+textdb[player.language]['congrats']+", <span id='player-name'>" + player.name + "</span>!</b> "+textdb[player.language]['yourscore']+": <b>" + player.totalscore + "</b>").fadeIn(t);
 	else $("#definition").html("<b class='error'>"+textdb[player.language]['tryagain']+"!</b>").fadeIn(t);
 }
 
@@ -664,7 +664,7 @@ function get_player_name() {
 }
 /* On load Functions */
 function eplay(effect) {
-	if(player.sound) effect.play();
+	if(player.sound) {effect.currentTime = 0; effect.play(); }
 }
 
 function check_mode() {
