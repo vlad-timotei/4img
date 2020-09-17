@@ -641,13 +641,13 @@ function get_player_name() {
 	var availablename;
 	if(player.name == 0) {
 		var playernameinput = document.getElementById("nume-participant").value.replace(/\s+/g, ''); 
-		if(playernameinput == "") {
-			$("#alertme").html(textdb[player.language]['namealert']+"!<br/>"); 
+		if(playernameinput.length>10){
+			$("#alertme").html(textdb[player.language]['namelengthalert']+"!<br/>"); 
 			return 0;
 		}
 		playernameinput = sanitizename(playernameinput);
-		if(playernameinput.length>10){
-			$("#alertme").html(textdb[player.language]['namelengthalert']+"!<br/>"); 
+		if(playernameinput == "") {
+			$("#alertme").html(textdb[player.language]['namealert']+"!<br/>"); 
 			return 0;
 		}
 		if(!document.getElementById("termsandconditions").checked){
