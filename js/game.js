@@ -352,9 +352,12 @@ function fill_btns(mode) {
 		limit=12;
 		btns_txt = encrypted_solution_easy.split('');
 		btns_txt.sort(function(a, b) {return a.localeCompare(b);	}); 
+		encrypted_solution_easy=btns_txt.join('');
 	}
 	else { 
-		limit=16; btns_txt = shuffle(encrypted_solution_hard.split(''));
+		limit=16;
+		btns_txt = shuffle(encrypted_solution_hard.split(''));
+		encrypted_solution_hard=btns_txt.join('');
 	}
 	setval(game+"_key",player.level+"#"+encrypted_solution_easy+"#"+encrypted_solution_hard);
 	
