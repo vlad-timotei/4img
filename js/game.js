@@ -340,7 +340,7 @@ function fill_btns(mode) {
 	}); 
 	else btns_txt = shuffle(btns_txt);
 	for(i = 1; i <= limit; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
-	setval(game+"_key",player.level+"@"+btns_txt.join());
+	setval(game+"_key",player.level+"@"+btns_txt.join(''));
 }
 
 function fill_level(whatmode, txt, t) {
