@@ -337,7 +337,7 @@ function fill_btns(mode) {
 	level_key=getval(game+"_key");
 	if(level_key)
 	{level_key=level_key.split("#");
-	 if(level_key[0]==player.level&&level_key[1]==mode)
+	 if(level_key[0]==player.level&&level_key[2]==mode)
      { btns_txt=level_key[1].split('');
        for(i = 1; i <= limit; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
 	   return true;
