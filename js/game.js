@@ -28,6 +28,7 @@ textdb = [
  'tryagain':'Încearcă din nou',
  'clue':'Indiciu',
  'namealert':'Introdu numele mai întâi',
+ 'namelengthalert':'Introdu un nume mai scurt de 10 caractere!',
  'policyalert':'Acceptă Politica de confidențialitate',
  'pickothername':'Alege alt nume',
  'exists':'există deja',
@@ -47,6 +48,7 @@ textdb = [
  'tryagain':'Try again',
  'clue':'Clue',
  'namealert':'Enter your name first',
+ 'namelengthalert':'Choose a name shorter than 10 characters!',
  'policyalert':'Accept Privacy Policy',
  'pickothername':'Pick anoter name',
  'exists':'already exists',
@@ -621,9 +623,14 @@ function close_modal() {
 function get_player_name() {
 	var availablename;
 	if(player.name == 0) {
-		var playernameinput = document.getElementById("nume-participant").value.replace(/\s+/g, '');
+		var playernameinput = document.getElementById("nume-participant").value.replace(/\s+/g, ''); 
 		if(playernameinput == "") {
 			$("#alertme").html(textdb[player.language]['namealert']+"!<br/>"); 
+			return 0;
+		}
+		playernameinput = sanitizename(playernameinput);
+		if(playernameinput.length>10){
+			$("#alertme").html(textdb[player.language]['namelengthalert']+"!<br/>"); 
 			return 0;
 		}
 		if(!document.getElementById("termsandconditions").checked){
@@ -662,7 +669,16 @@ function get_player_name() {
 	$("#noname").hide();
 	return 1;
 }
-/* On load Functions */
+
+function sanitizename(s) {
+   var diacritics = ["ă", "â", "ș", "ț", "î", "Ă", "Â", "Ș", "Ț", "Î", "#","$"];
+   var chars = ["a", "a", "s", "t", "i", "A","A", "S", "T", "I", "", ""];
+				for (var i = 0; i < diacritics.length; i++) {
+					s = s.split(diacritics[i]).join(chars[i]);
+				}
+			return s;
+}
+
 function eplay(effect) {
 	if(player.sound) {effect.currentTime = 0; effect.play(); }
 }
