@@ -29,16 +29,11 @@ Explorator pasionat de provocări și de minunile naturii.
 <hr>
 
 <i> Probleme cunoscute </i>
-1. Efectele sonore din aceeași categorie rulează doar dacă efectul sonor precedent s-a terminat.  
-2. Literele din soluție trec pe 2 rânduri atunci când cuvantul are 9 sau mai multe litere
-3. La fiecare reincarcare a jocului, literele pentru un anumit nivel se schimba; prin metoda excluderii, se pot afla literele corecte
-4. Solutia poate fi aflata din sursa codului sau prin injectare js in bara de adresa
-5. Verificarea diponibilității numelui în baza de date se face sincron. 
-6. Setarea numelui nu se poate face fara acces la serverul vladtimotei.ro
-7. Chrome cere favicon.ico la fiecare efect sonor
-8. Dupa setarea numelui, acesta nu apare ca si salut pe Home Page - doar dupa reincarcarea paginii. 
-9. Jocul se incarca cu datele curente si abia apoi verifica date vechi, pentru a nu depinde de serverul raduanastase.net 
-10. Preluarea datelor vechi nu se poate face in modul Incognito, chiar daca datele vechi au fost create in acea sesiune. 
+1. La fiecare reincarcare a jocului, literele pentru un anumit nivel se schimba; prin metoda excluderii, se pot afla literele corecte
+2. Solutia poate fi aflata din sursa codului sau prin injectare js in bara de adresa
+3. Setarea numelui nu se poate face fara acces la serverul vladtimotei.ro
+4. Chrome cere favicon.ico la fiecare efect sonor
+5. Preluarea datelor vechi nu se poate face in modul Incognito, chiar daca datele vechi au fost create in acea sesiune. 
 
 # Changelog
 
@@ -93,5 +88,9 @@ Explorator pasionat de provocări și de minunile naturii.
 - 100 levels in 2 languages
 - en_EN package implemented
 - temporary change mode when solution is longer
-- optimised code and fixed bugs
+- optimized algorithm
 - beautify statistics
+- sanitized user name limited to 10 chars
+- fixed multiple sound bug
+- solution font-size responsive to level solution size
+- name is now displayed right after registration without refresh needed
