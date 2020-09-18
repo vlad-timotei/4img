@@ -836,11 +836,6 @@ function check_player(first_check = 1) {
 	player.olduser = 0;
 	preload_current_images();
 	preload_next_images();
-	
-}
-
-function get_player_idname(){
-	var idname = getval(game + "_nume");
 	if(player.name != 0) {
 		$("#noname").hide();
 		$("#salut").html(", " + player.name);
@@ -849,10 +844,10 @@ function get_player_idname(){
 		$("#noname").show();
 		$("#salut").html("");
 	}
-	
-	
-	
-	
+}
+
+function get_player_idname(){
+	var idname = getval(game + "_nume");
 	if(idname.indexOf('#')==-1)
 	   {var param = {
 			"name": idname
