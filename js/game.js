@@ -671,7 +671,7 @@ function get_player_name() {
 		
         var userID = get_userID(param,false);
 		
-		if(userID.indexOf('#') > 0) {
+		if(userID.indexOf('#')==-1) {
 			setval(game + "_nume", data+"#"+playernameinput);
 			player.name = playernameinput;
 			player.olduser = 0;
