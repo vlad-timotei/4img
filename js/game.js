@@ -666,7 +666,7 @@ function get_player_name() {
 		else var param = {
 			"name": playernameinput
 		};
-		var req = "https://vladtimotei.ro/scripts/4img/4img_check_name.php";
+		var req = "https://vladtimotei.ro/scripts/4img/4img_get_name.php";
 		$.ajax({
 			type: "GET",
 			url: req,
@@ -676,8 +676,8 @@ function get_player_name() {
 				availablename = data;
 			}
 		});
-		if(availablename == 1) {
-			setval(game + "_nume", playernameinput);
+		if(availablename>0) {
+			setval(game + "_nume", data+"#"+playernameinput);
 			player.name = playernameinput;
 			player.olduser = 0;
 			$("#salut").html(", " + player.name);
