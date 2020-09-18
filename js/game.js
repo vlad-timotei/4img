@@ -850,7 +850,7 @@ function get_player_idname(){
 	player.idname = getval(game + "_nume");
 	if(player.idname.indexOf('#')==-1)
 	   {var param = {
-			"name": player.idname;
+			"name": player.idname
 		};
 		player.id=get_userID(param,false); 
         player.name=player.idname;
