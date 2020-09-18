@@ -566,13 +566,14 @@ function home() {
 }
 
 function switch_sound() {
-	if(player.sound == 0) {
-		player.sound = 1;
+	if(player.sound == false) {
+		player.sound = true;
 		$("#switch_sound").html("volume_up");
 	} else {
-		player.sound = 0;
+		player.sound = false;
 		$("#switch_sound").html("volume_off");
 	}
+	setval(game+"_sound",player.sound);
 }
 
 function get_clue() {
@@ -813,11 +814,12 @@ function get_ranking(whattype) {
 function check_player(first_check = 1) {
 	player.name = getval(game + "_nume");
 	player.level = getval(game);
+	player.sound = getval(game+"_sound");
 	player.totalscore = getval(game + "_score");
+	if(player.sound==0) player.sound=true;
 	check_mode();
 	check_level();
 	if(first_check) get_ranking("short");
-	player.sound = 1;
 	player.olduser = 0;
 	preload_current_images();
 	preload_next_images();
