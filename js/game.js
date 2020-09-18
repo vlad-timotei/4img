@@ -640,7 +640,7 @@ function close_modal() {
 }
 
 function get_player_name() {
-	
+	var availablename;
 	if(player.name == 0) {
 		var playernameinput = document.getElementById("nume-participant").value.replace(/\s+/g, ''); 
 		if(playernameinput.length>10){
@@ -661,17 +661,22 @@ function get_player_name() {
 			"name": playernameinput,
 			"olduser": true,
 			"nivel": player.level,
-			"punctaj": player.totalscore,
-			"registerme":true
+			"punctaj": player.totalscore
 		};
 		else var param = {
-			"name": playernameinput,
-			"registerme":true
+			"name": playernameinput
 		};
-		
-        var userID = get_userID(param,false);
-		
-		if(userID.indexOf('#') > 0) {
+		var req = "https://vladtimotei.ro/scripts/4img/4img_get_name.php";
+		$.ajax({
+			type: "GET",
+			url: req,
+			async: false,
+			data: param,
+			success: function(data) {
+				availablename = data;
+			}
+		});
+		if(availablename>0) {
 			setval(game + "_nume", data+"#"+playernameinput);
 			player.name = playernameinput;
 			player.olduser = 0;
@@ -683,21 +688,6 @@ function get_player_name() {
 	}
 	$("#noname").hide();
 	return 1;
-}
-
-function get_userID(param,sync){
-	var req = "https://vladtimotei.ro/scripts/4img/4img_get_name.php";
-	var uid;
-		$.ajax({
-			type: "GET",
-			url: req,
-			async: sync,
-			data: param,
-			success: function(data) {
-				uid = data;
-			}
-		});
-		return uid; 
 }
 
 function sanitizename(s) {
