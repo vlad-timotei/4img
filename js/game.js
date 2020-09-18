@@ -699,7 +699,7 @@ function sanitizename(s) {
 }
 
 function eplay(effect) {
-	if(player.sound) {effect.currentTime = 0; effect.play(); }
+	if(player.sound==true) {effect.currentTime = 0; effect.play(); }
 }
 
 function check_mode() {
