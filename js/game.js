@@ -671,8 +671,8 @@ function get_player_name() {
 		
         var userID = get_userID(param,false);
 		
-		if(userID.indexOf('#')=="-1") {
-			setval(game + "_nume", data+"#"+playernameinput);
+		if(userID.indexOf('#')==-1) {
+			setval(game + "_nume", userID+"#"+playernameinput);
 			player.name = playernameinput;
 			player.olduser = 0;
 			$("#salut").html(", " + player.name);
