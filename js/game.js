@@ -661,17 +661,17 @@ function get_player_name() {
 			"name": playernameinput,
 			"olduser": true,
 			"nivel": player.level,
-			"punctaj": player.totalscore,
-			"registerme":true
+			"punctaj": player.totalscore
+			
 		};
 		else var param = {
-			"name": playernameinput,
-			"registerme":true
+			"name": playernameinput
+			
 		};
 		
         var userID = get_userID(param,false);
 		
-		if(userID.indexOf('#')==-1) {
+		if(userID.indexOf('#')=="-1") {
 			setval(game + "_nume", data+"#"+playernameinput);
 			player.name = playernameinput;
 			player.olduser = 0;
