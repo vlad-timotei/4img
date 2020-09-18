@@ -1,7 +1,7 @@
 // Game created by Vlad Timotei $ver.6.0 @17.09.2020 #ro_en100
 var game = "4img1word_19052020F";
 var level = {}; // solution, solution_lenght, try_lenght, completed, definition, timeforaudiohint, timeoforhint
-var player = {}; // idname, id, name, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
+var player = {}; // name, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
 
 var btns = []; //starts with 1
 var btns_txt = []; //starts with 0
@@ -824,7 +824,7 @@ function get_ranking(whattype) {
 }
 
 function check_player(first_check = 1) {
-	get_player_idname(); 
+	player.name = getval(game + "_nume");
 	player.level = getval(game);
 	player.sound = getval(game+"_sound");
 	player.totalscore = getval(game + "_score");
@@ -843,24 +843,6 @@ function check_player(first_check = 1) {
 		if(player.level != 0) player.olduser = 1;
 		$("#noname").show();
 		$("#salut").html("");
-	}
-}
-
-function get_player_idname(){
-	player.idname = getval(game + "_nume");
-	if(player.idname.indexOf('#')==-1)
-	   {var param = {
-			"name": player.idname;
-		};
-		player.id=get_userID(param,false); 
-        player.name=player.idname;
-        setval(game+"_nume",player.id+"#"+player.name);
-	   }
-	else
-	{
-		var idname=player.idname.split("#",2);
-		player.id=idname[0];
-		player.name=idname[1];
 	}
 }
 
