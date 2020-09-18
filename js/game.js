@@ -1,7 +1,7 @@
 // Game created by Vlad Timotei $ver.6.0 @17.09.2020 #ro_en100
 var game = "4img1word_19052020F";
 var level = {}; // solution, solution_lenght, try_lenght, completed, definition, timeforaudiohint, timeoforhint
-var player = {}; // idname, id, name, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
+var player = {}; // id, name, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
 
 var btns = []; //starts with 1
 var btns_txt = []; //starts with 0
@@ -847,18 +847,18 @@ function check_player(first_check = 1) {
 }
 
 function get_player_idname(){
-	player.idname = getval(game + "_nume");
-	if(player.idname.indexOf('#')==-1)
+	var idname = getval(game + "_nume");
+	if(idname.indexOf('#')==-1)
 	   {var param = {
-			"name": player.idname
+			"name": idname
 		};
 		player.id=get_userID(param,false); 
-        player.name=player.idname;
+        player.name=idname;
         setval(game+"_nume",player.id+"#"+player.name);
 	   }
 	else
 	{
-		var idname=player.idname.split("#",2);
+		idname=idname.split("#",2);
 		player.id=idname[0];
 		player.name=idname[1];
 	}
