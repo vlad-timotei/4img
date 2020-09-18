@@ -775,6 +775,7 @@ function check_level() {
 function put_ranking(whattype) {
 	var rank = {}; 
 	var output = "";
+	var x;
 	ranking = ranking.split("||", 3);
 	rank = JSON.parse(ranking[2]);
 	for(x in rank) output += '<div class="row s12"><div class="col s8 offset-s1 clasn">' + rank[x]['id'] + '. ' + rank[x]['nume'] + '</div><div class="col s2 clasp">' + rank[x]['punctaj'] + '</div></div>';
