@@ -566,14 +566,15 @@ function home() {
 }
 
 function switch_sound() {
-	if(player.sound == false) {
-		player.sound = true;
-		$("#switch_sound").html("volume_up");
-	} else {
-		player.sound = false;
-		$("#switch_sound").html("volume_off");
-	}
+	if(player.sound == false) player.sound = true;
+	else player.sound = false;
 	setval(game+"_sound",player.sound);
+	set_sound();
+}
+
+function set_sound() {
+	if(player.sound == true) $("#switch_sound").html("volume_up");
+	else $("#switch_sound").html("volume_off");
 }
 
 function get_clue() {
@@ -818,6 +819,7 @@ function check_player(first_check = 1) {
 	player.sound = getval(game+"_sound");
 	player.totalscore = getval(game + "_score");
 	if(player.sound==0) player.sound=true;
+	set_sound();
 	check_mode();
 	check_level();
 	if(first_check) get_ranking("short");
