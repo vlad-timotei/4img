@@ -566,14 +566,14 @@ function home() {
 }
 
 function switch_sound() {
-	if(player.sound == false) player.sound = true;
-	else player.sound = false;
+	if(player.sound == "off") player.sound = "on";
+	else player.sound = "off";
 	setval(game+"_sound",player.sound);
 	set_sound();
 }
 
 function set_sound() {
-	if(player.sound == true) $("#switch_sound").html("volume_up");
+	if(player.sound == "on") $("#switch_sound").html("volume_up");
 	else $("#switch_sound").html("volume_off");
 }
 
@@ -700,7 +700,7 @@ function sanitizename(s) {
 }
 
 function eplay(effect) {
-	if(player.sound==true) {effect.currentTime = 0; effect.play(); }
+	if(player.sound=="on") {effect.currentTime = 0; effect.play(); }
 }
 
 function check_mode() {
@@ -818,7 +818,7 @@ function check_player(first_check = 1) {
 	player.level = getval(game);
 	player.sound = getval(game+"_sound");
 	player.totalscore = getval(game + "_score");
-	if(player.sound==0) player.sound=true;
+	if(player.sound==0) player.sound="on";
 	set_sound();
 	check_mode();
 	check_level();
