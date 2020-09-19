@@ -833,7 +833,7 @@ function put_ranking(whattype) {
 function get_ranking(whattype) {
 	var param = {
 		"type": whattype,
-		"name": player.name
+		"name": player.name		
 	};
 	var req = "https://vladtimotei.ro/scripts/4img/4img_ranking.php";
 	$.get(req, param, function(data) {
