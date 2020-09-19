@@ -20,7 +20,7 @@
 4img_language <input type="text" id="4img_language"><br/>
 4img_sound <input type="text" id="4img_sound"><br/>
 4img_acceptedterms <input type="text" id="4img_acceptedterms"><br/>
-<b><a onlick="change();" style="cursor:pointer;">Change</a></b>
+<b><a onlick="changeLS();" style="cursor:pointer;">Change</a></b>
 <script>
 var game="4img";
 function getval(cname) {
@@ -33,7 +33,7 @@ function setval(cname, cvalue) {
     localStorage.setItem(cname, cvalue);
 }
 
-function change(){
+function changeLS(){
 setval(game,document.getElementById(game).value);
 setval(game+"_name",document.getElementById(game+"_name").value);
 setval(game+"_ID",document.getElementById(game+"_ID").value);
