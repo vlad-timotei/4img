@@ -693,7 +693,7 @@ function get_player_name() {
 			"punctaj": player.totalscore
 		};
 	 player.ID=get_player_id(param,true);
-	 setTimeout(500, function(){setval(game+"_ID",player.ID.replace("#","");)}); 
+	 setTimeout(500, function(){setval(game+"_ID",player.ID.replace("#",""))}); 
 	}
 	$("#noname").hide();
 	return 1;
