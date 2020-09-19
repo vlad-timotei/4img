@@ -666,7 +666,21 @@ function get_player_name() {
 		else var param = {
 			"name": playernameinput
 		};
-		player.ID=get_player_id(param); 
+		
+		//player.ID=get_player_id(param); 
+		
+		var playerID;
+	    var req = "https://vladtimotei.ro/scripts/4img/4img_get_name.php";
+		$.ajax({
+			type: "GET",
+			url: req,
+			async: false,
+			data: param,
+			success: function(data) {
+				playerID = data;
+			}
+		});
+		player.ID=playerID;
 		
 		if(player.ID.indexOf("#")!=0) {
 			setval(game + "_nume", playernameinput);
@@ -684,17 +698,7 @@ function get_player_name() {
 }
 
 function get_player_id(param){
-	var playerID;
-	var req = "https://vladtimotei.ro/scripts/4img/4img_get_name.php";
-		$.ajax({
-			type: "GET",
-			url: req,
-			async: false,
-			data: param,
-			success: function(data) {
-				playerID = data;
-			}
-		});
+	
 	return playerID;
 }
 
