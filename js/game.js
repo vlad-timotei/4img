@@ -673,6 +673,7 @@ function get_player_name() {
 			player.name = playernameinput;
 			player.olduser = 0;
 			$("#salut").html(", " + player.name);
+			setval(game+"_ID",player.ID);
 		} else {
 			$("#alertme").html(textdb[player.language]['pickothername']+"! " + playernameinput + "  "+textdb[player.language]['exists']+" ! <br/>");
 			return 0;
