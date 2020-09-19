@@ -1,5 +1,6 @@
 // Game created by Vlad Timotei $ver.6.0 @20.09.2020 #ro_en100
-var game = "4img1word_19052020F";
+var game = "4img";
+var oldgame = "4img1word_19052020F";
 var level = {}; // solution, solution_lenght, try_lenght, completed, definition, timeforaudiohint, timeoforhint
 var player = {}; // name, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
 
@@ -653,22 +654,19 @@ function preload_imgs(imgs) {
     }
 }
 
-function setval(cname, cvalue) {
-    setLS(cname, cvalue);
-}
 
-function getval(cname) {
-    return getLS(cname);
-}
-
-function getLS(cname) {
+function geval(cname) {
     var loc = localStorage.getItem(cname);
     if(loc) return loc;
     else return 0;
 }
 
-function setLS(cname, cvalue) {
+function setval(cname, cvalue) {
     localStorage.setItem(cname, cvalue);
+}
+
+function delval(cname){
+	localStorage.removeItem(cname);
 }
 
 function newDomain(data) {
@@ -683,7 +681,15 @@ function newDomain(data) {
 }
 
 function check_old_data() {
-    if(getLS(game) == 0) {
+    if(getval(game) == 0) {
+		if(getval(oldgame)!=0){
+			setval(game,getval(oldgame)); delval(oldgame);
+			setval(game+"_mode",getval(oldgame+"_mode")); delval(oldgame+"_mode");
+			setval(game+"_acceptedterms",getval(oldgame+"_acceptedterms")); delval(oldgame+"_acceptedterms");
+			setval(game+"_nume",getval(oldgame+"_nume")); delval(oldgame+"_nume");
+			setval(game+"_score",getval(oldgame+"_score")); delval(oldgame+"_score");
+		 return; 
+		}
         window.addEventListener("message", function(event) {
             newDomain(event.data);
         });
