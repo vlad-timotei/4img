@@ -95,3 +95,4 @@ Explorator pasionat de provocări și de minunile naturii.
 - name is now displayed right after registration without refresh needed
 - level letters are stored btw easy-hard-refresh mode to prevent cheating
 - injection prevention implemented
+- sound option on-off is remembered
