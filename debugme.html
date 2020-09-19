@@ -20,7 +20,7 @@
 4img_language <input type="text" id="4img_language"><br/>
 4img_sound <input type="text" id="4img_sound"><br/>
 4img_acceptedterms <input type="text" id="4img_acceptedterms"><br/>
-<b><a onlick="changeLS();" style="cursor:pointer;">Change</a></b>
+<b><a onClick="changeLS();" style="cursor:pointer;">Change</a></b>
 <script>
 var game="4img";
 function getval(cname) {
@@ -45,7 +45,7 @@ setval(game+"_language",document.getElementById(game+"_language").value);
 setval(game+"_sound",document.getElementById(game+"_sound").value);
 setval(game+"_acceptedterms",document.getElementById(game+"_acceptedterms").value);
 getLS();
-document.write("Am actualizat!");
+document.getElementById("msg").innerHTML="Am actualizat!";
 }
 
 function getLS(){
