@@ -682,7 +682,7 @@ function get_player_name() {
 	return 1;
 }
 
-get_player_id(param){
+function get_player_id(param){
 	var playerID;
 	var req = "https://vladtimotei.ro/scripts/4img/4img_get_name.php";
 		$.ajax({
