@@ -655,7 +655,7 @@ function preload_imgs(imgs) {
 }
 
 
-function geval(cname) {
+function getval(cname) {
     var loc = localStorage.getItem(cname);
     if(loc) return loc;
     else return 0;
