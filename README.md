@@ -96,3 +96,8 @@ Explorator pasionat de provocări și de minunile naturii.
 - level letters are stored btw easy-hard-refresh mode to prevent cheating
 - injection prevention implemented
 - sound option on-off is remembered
+- userID implemented
+- more user LS settings: 
+<i>_, _mode, _acceptedterms,
+ _nume, _score, _language,
+ _key_0, _key_1, _ID, _sound</i> 
