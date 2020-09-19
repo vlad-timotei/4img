@@ -17,8 +17,6 @@ music.ninja = document.getElementById("s_ninja");
 music.switch_btn = document.getElementById("s_switch");
 music.hint = document.getElementById("s_hint");
 
-player.language=1;
-
 var stats = {};
 var ranking;
 
@@ -86,7 +84,7 @@ function init_btns(mode) {
 
 function fill_btns(mode) {
     var i, level_key;
-    level_key = getval(game + "_key_"+player.lang);
+    level_key = getval(game + "_key_"+player.language);
     if(level_key) {
         level_key = level_key.split("#");
         if(level_key[0] == player.level) {
@@ -120,7 +118,7 @@ function fill_btns(mode) {
         btns_txt = btns_txt_hard.slice();
         for(i = 1; i <= 16; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
     }
-    setval(game + "_key_"+player.lang, player.level + "#" + encrypted_solution_easy + "#" + encrypted_solution_hard);
+    setval(game + "_key_"+player.language, player.level + "#" + encrypted_solution_easy + "#" + encrypted_solution_hard);
 }
 
 function fill_level(whatmode, txt, t) {
@@ -284,7 +282,7 @@ function next() {
     setTimeout(preload_next_images, 1000);
     setval(game, player.level);
     setval(game + "_score", player.totalscore);
-    setval(game + "_key_"+player.lang, 0);
+    setval(game + "_key_"+player.language, 0);
     start(0);
 }
 
