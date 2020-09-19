@@ -253,7 +253,7 @@ function reset_game() {
 function newGame() {
     clearTimeout(level.timeforaudiohint);
     clearTimeout(level.timeforhint);
-    setval(game + "_nume", 0);
+    setval(game + "_name", 0);
     setval(game, 0);
     setval(game + "_score", 0);
     player.totalscore = 0;
@@ -430,7 +430,7 @@ function get_player_name() {
         };
         player.ID = get_player_id(param, false);
         if(player.ID.indexOf("#") != 0) {
-            setval(game + "_nume", playernameinput);
+            setval(game + "_name", playernameinput);
             player.name = playernameinput;
             player.olduser = 0;
             $("#salut").html(", " + player.name);
@@ -608,7 +608,7 @@ function get_ranking(whattype) {
 }
 
 function check_player(first_check = 1) {
-    player.name = getval(game + "_nume");
+    player.name = getval(game + "_name");
     player.level = getval(game);
     player.sound = getval(game + "_sound");
     player.totalscore = getval(game + "_score");
@@ -686,7 +686,7 @@ function check_old_data() {
 			setval(game,getval(oldgame)); delval(oldgame);
 			setval(game+"_mode",getval(oldgame+"_mode")); delval(oldgame+"_mode");
 			setval(game+"_acceptedterms",getval(oldgame+"_acceptedterms")); delval(oldgame+"_acceptedterms");
-			setval(game+"_nume",getval(oldgame+"_nume")); delval(oldgame+"_nume");
+			setval(game+"_name",getval(oldgame+"_nume")); delval(oldgame+"_nume");
 			setval(game+"_score",getval(oldgame+"_score")); delval(oldgame+"_score");
 		 return; 
 		}

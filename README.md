@@ -99,5 +99,5 @@ Explorator pasionat de provocări și de minunile naturii.
 - userID implemented
 - more user LS settings: 
 <i>_, _mode, _acceptedterms,
- _nume, _score, _language,
+ _name, _score, _language,
  _key_0, _key_1, _ID, _sound</i> 
