@@ -88,7 +88,7 @@ Explorator pasionat de provocări și de minunile naturii.
 - en_EN package implemented
 - temporary change mode when solution is longer
 - optimized algorithm
-- beautify statistics
+- advanced data-table statistics
 - sanitized user name limited to 10 chars
 - fixed multiple sound bug
 - solution font-size responsive to level solution size
