@@ -517,7 +517,8 @@ function next() {
 		"cuv": level.solution,
 		"nume": player.name,
 		"scor": player.totalscore,
-		"lang": player.language
+		"lang": player.language,
+		"ID": player.ID
 	};
 	send_stats();
 	clearTimeout(level.timeforaudiohint);
@@ -628,7 +629,7 @@ function show_final_score() {
 }
 
 function send_stats() {
-	var req = "https://vladtimotei.ro/scripts/4img/4img_stats.php";
+	var req = "https://vladtimotei.ro/scripts/4img/4img_send_stats.php";
 	$.get(req, stats);
 }
 var modal = document.getElementById("modal_area");
