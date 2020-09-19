@@ -1,7 +1,7 @@
 // Game created by Vlad Timotei $ver.6.0 @17.09.2020 #ro_en100
 var game = "4img1word_19052020F";
 var level = {}; // solution, solution_lenght, try_lenght, completed, definition, timeforaudiohint, timeoforhint
-var player = {}; // name, ID, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
+var player = {}; // name, level, mode, startofgame, endofgame, timpepergame, scorpergame, totalscore, usedclue, tries, clue_coef, sound, olduser
 
 var btns = []; //starts with 1
 var btns_txt = []; //starts with 0
@@ -666,28 +666,21 @@ function get_player_name() {
 		else var param = {
 			"name": playernameinput
 		};
-		
-		//player.ID=get_player_id(param); 
-		
-		var playerID;
-	    var req = "https://vladtimotei.ro/scripts/4img/4img_get_name.php";
+		var req = "https://vladtimotei.ro/scripts/4img/4img_check_name.php";
 		$.ajax({
 			type: "GET",
 			url: req,
 			async: false,
 			data: param,
 			success: function(data) {
-				playerID = data;
+				availablename = data;
 			}
 		});
-		player.ID=playerID;
-		
-		if(player.ID.indexOf("#")!=0) {
+		if(availablename == 1) {
 			setval(game + "_nume", playernameinput);
 			player.name = playernameinput;
 			player.olduser = 0;
 			$("#salut").html(", " + player.name);
-			setval(game+"_ID",player.ID);
 		} else {
 			$("#alertme").html(textdb[player.language]['pickothername']+"! " + playernameinput + "  "+textdb[player.language]['exists']+" ! <br/>");
 			return 0;
@@ -695,11 +688,6 @@ function get_player_name() {
 	}
 	$("#noname").hide();
 	return 1;
-}
-
-function get_player_id(param){
-	
-	return playerID;
 }
 
 function sanitizename(s) {
