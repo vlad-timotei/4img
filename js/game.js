@@ -708,12 +708,11 @@ function get_player_id(param,nonsync){
 			data: param,
 			success: function(data) {
 				if(nonsync) 
-					player.ID=data.replace("#","");
+				{   player.ID=data.replace("#","");
 					setval(game+"_ID",player.ID);
-				else {
-					playerID = data;
-					
 				}
+				else 
+					playerID = data;
 			}
 		});
 	if(!nonsync) return playerID;
