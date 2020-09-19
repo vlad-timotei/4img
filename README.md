@@ -93,11 +93,8 @@ Explorator pasionat de provocări și de minunile naturii.
 - fixed multiple sound bug
 - solution font-size responsive to level solution size
 - name is now displayed right after registration without refresh needed
-- level letters are stored btw easy-hard-refresh mode to prevent cheating
+- lvl letters for easy-hard-ro-en-refresh mode stored to prevent cheating
 - injection prevention implemented
 - sound option on-off is remembered
 - userID implemented
-- more user LS settings: 
-<i>_, _mode, _acceptedterms,
- _name, _score, _language,
- _key_0, _key_1, _ID, _sound</i> 
+- more user LS settings: <i>_, _mode, _acceptedterms, _name, _score, _language, _key_0, _key_1, _ID, _sound</i> 
