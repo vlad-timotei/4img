@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Debug 4img</title>
+    
+	<style>
+	 
+	</style>
+</head>
+<body>
+<h2>Debugging</h2>
+
+4img_name <input type="text" id="4img_name"><br/>
+4img_ID <input type="text" id="4img_id"><br/>
+4img <input type="text" id="4img"><br/>
+4img_score <input type="text" id="4img_score"><br/>	
+4img_mode <input type="text" id="4img_mode"><br/>	
+4img_key_0 <input type="text" id="4img_key_0"><br/>
+4img_key_1 <input type="text" id="4img_key_1"><br/>	
+4img_language <input type="text" id="4img_language"><br/>
+4img_sound <input type="text" id="4img_sound"><br/>
+4img_acceptedterms <input type="text" id="4img_acceptedterms"><br/>
+<b><a onlick="change();">Change</a></b>
+<script>
+var game="4img";
+function getval(cname) {
+    var loc = localStorage.getItem(cname);
+    if(loc) return loc;
+    else return 0;
+}
+
+function setval(cname, cvalue) {
+    localStorage.setItem(cname, cvalue);
+}
+
+function change(){
+setval(game,document.getElementById(game).value);
+setval(game+"_name",document.getElementById(game+"_name").value);
+setval(game+"_ID",document.getElementById(game+"_ID").value);
+setval(game+"_score",document.getElementById(game+"_score").value);
+setval(game+"_mode",document.getElementById(game+"_mode").value);
+setval(game+"_key_0",document.getElementById(game+"_key_0").value);
+setval(game+"_key_1",document.getElementById(game+"_key_1").value);
+setval(game+"_language",document.getElementById(game+"_language").value);
+setval(game+"_sound",document.getElementById(game+"_sound").value);
+setval(game+"_acceptedterms",document.getElementById(game+"_acceptedterms").value);
+}
+
+function getLS(){
+document.getElementById(game).value=getval(game);
+document.getElementById(game+"_name").value=getval(game+"_name");
+document.getElementById(game+"_ID").value=getval(game+"_ID");
+document.getElementById(game+"_score").value=getval(game+"_score");
+document.getElementById(game+"_mode").value=getval(game+"_mode");
+document.getElementById(game+"_key_0").value=getval(game+"_key_0");
+document.getElementById(game+"_key_1").value=getval(game+"_key_1");
+document.getElementById(game+"_language").value=getval(game+"_language");
+document.getElementById(game+"_sound").value=getval(game+"_sound");
+document.getElementById(game+"_acceptedterms").value=getval(game+"_acceptedterms");
+}
+</script>
+</body>
+</html>
