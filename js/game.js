@@ -692,26 +692,31 @@ function get_player_name() {
 			"nivel": player.level,
 			"punctaj": player.totalscore
 		};
-	 player.ID=get_player_id(param,true);
-	 setTimeout(500, function(){setval(game+"_ID",player.ID.replace("#",""))}); 
+	    get_player_id(param,true);
 	}
 	$("#noname").hide();
 	return 1;
 }
 
-function get_player_id(param,sync){
+function get_player_id(param,nonsync){
 	var playerID;
 	var req = "https://vladtimotei.ro/scripts/4img/4img_get_name.php";
 		$.ajax({
 			type: "GET",
 			url: req,
-			async: sync,
+			async: nonsync,
 			data: param,
 			success: function(data) {
-				playerID = data;
+				if(nonsync) 
+					player.ID=data.replace("#","");
+					setval(game+"_ID",player.ID);
+				else {
+					playerID = data;
+					
+				}
 			}
 		});
-	return playerID;
+	if(!nonsync) return playerID;
 }
 
 function sanitizename(s) {
