@@ -348,19 +348,21 @@ function fill_btns(mode) {
     }
     var encrypted_solution_easy = level.solution + add_letters(12 - level.solution_lenght);
     var encrypted_solution_hard = encrypted_solution_easy + add_letters(4);
-	
     var btns_txt_easy = encrypted_solution_easy.split('');
-    btns_txt_easy.sort(function(a, b) { return a.localeCompare(b);});
-    
-	var btns_txt_hard = shuffle(encrypted_solution_hard.split(''));
-    
-	encrypted_solution_easy = btns_txt_easy.join('');
+    btns_txt_easy.sort(function(a, b) {
+        return a.localeCompare(b);
+    });
+    var btns_txt_hard = shuffle(encrypted_solution_hard.split(''));
+    encrypted_solution_easy = btns_txt_easy.join('');
     encrypted_solution_hard = btns_txt_hard.join('');
-    
-	if(mode == "easy"){ btns_txt = btns_txt_easy.slice();  for(i = 1; i <= 12; i++) document.getElementById(i).innerHTML = btns_txt[i - 1]; }
-    else { btns_txt = btns_txt_hard.slice(); for(i = 1; i <= 16; i++) document.getElementById(i).innerHTML = btns_txt[i - 1]; }
-    
-	setval(game + "_key", player.level + "#" + encrypted_solution_easy + "#" + encrypted_solution_hard);
+    if(mode == "easy") {
+        btns_txt = btns_txt_easy.slice();
+        for(i = 1; i <= 12; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
+    } else {
+        btns_txt = btns_txt_hard.slice();
+        for(i = 1; i <= 16; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
+    }
+    setval(game + "_key", player.level + "#" + encrypted_solution_easy + "#" + encrypted_solution_hard);
 }
 
 function fill_level(whatmode, txt, t) {
@@ -671,21 +673,13 @@ function get_player_name() {
 		else var param = {
 			"name": playernameinput
 		};
-		var req = "https://vladtimotei.ro/scripts/4img/4img_check_name.php";
-		$.ajax({
-			type: "GET",
-			url: req,
-			async: false,
-			data: param,
-			success: function(data) {
-				availablename = data;
-			}
-		});
-		if(availablename == 1) {
+		player.ID=get_player_id(param); 
+		if(player.ID.indexOf("#")!=0) {
 			setval(game + "_nume", playernameinput);
 			player.name = playernameinput;
 			player.olduser = 0;
 			$("#salut").html(", " + player.name);
+			setval(game+"_ID",player.ID);
 		} else {
 			$("#alertme").html(textdb[player.language]['pickothername']+"! " + playernameinput + "  "+textdb[player.language]['exists']+" ! <br/>");
 			return 0;
@@ -693,6 +687,21 @@ function get_player_name() {
 	}
 	$("#noname").hide();
 	return 1;
+}
+
+function get_player_id(param){
+	var playerID;
+	var req = "https://vladtimotei.ro/scripts/4img/4img_get_name.php";
+		$.ajax({
+			type: "GET",
+			url: req,
+			async: false,
+			data: param,
+			success: function(data) {
+				playerID = data;
+			}
+		});
+	return playerID;
 }
 
 function sanitizename(s) {
