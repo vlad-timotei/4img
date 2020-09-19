@@ -348,14 +348,19 @@ function fill_btns(mode) {
     }
     var encrypted_solution_easy = level.solution + add_letters(12 - level.solution_lenght);
     var encrypted_solution_hard = encrypted_solution_easy + add_letters(4);
+	
     var btns_txt_easy = encrypted_solution_easy.split('');
     btns_txt_easy.sort(function(a, b) { return a.localeCompare(b);});
-    var btns_txt_hard = shuffle(encrypted_solution_hard.split(''));
-    encrypted_solution_easy = btns_txt_easy.join('');
+    
+	var btns_txt_hard = shuffle(encrypted_solution_hard.split(''));
+    
+	encrypted_solution_easy = btns_txt_easy.join('');
     encrypted_solution_hard = btns_txt_hard.join('');
-    if(mode == "easy") for(i = 1; i <= 12; i++) document.getElementById(i).innerHTML = btns_txt_easy[i - 1];
-    else for(i = 1; i <= 16; i++) document.getElementById(i).innerHTML = btns_txt_hard[i - 1];
-    setval(game + "_key", player.level + "#" + encrypted_solution_easy + "#" + encrypted_solution_hard);
+    
+	if(mode == "easy"){ btns_txt = btns_txt_easy.slice();  for(i = 1; i <= 12; i++) document.getElementById(i).innerHTML = btns_txt[i - 1]; }
+    else { btns_txt = btns_txt_hard.slice(); for(i = 1; i <= 16; i++) document.getElementById(i).innerHTML = btns_txt[i - 1]; }
+    
+	setval(game + "_key", player.level + "#" + encrypted_solution_easy + "#" + encrypted_solution_hard);
 }
 
 function fill_level(whatmode, txt, t) {
