@@ -647,8 +647,8 @@ function close_modal() {
 }
 
 function get_player_name() {
-	var availablename;
 	if(player.name == 0) {
+		var availablename;
 		var playernameinput = document.getElementById("nume-participant").value.replace(/\s+/g, ''); 
 		if(playernameinput.length>10){
 			$("#alertme").html(textdb[player.language]['namelengthalert']+"!<br/>"); 
@@ -673,7 +673,7 @@ function get_player_name() {
 		else var param = {
 			"name": playernameinput
 		};
-		player.ID=get_player_id(param); 
+		player.ID=get_player_id(param,false); 
 		if(player.ID.indexOf("#")!=0) {
 			setval(game + "_nume", playernameinput);
 			player.name = playernameinput;
@@ -685,17 +685,27 @@ function get_player_name() {
 			return 0;
 		}
 	}
+	if(player.ID == 0){
+		var param = {
+			"name": player.name,
+			"olduser": true,
+			"nivel": player.level,
+			"punctaj": player.totalscore
+		};
+	 player.ID=get_player_id(param,true);
+	 setTimeout(500, function(){setval(game+"_ID",player.ID.replace("#","");)}); 
+	}
 	$("#noname").hide();
 	return 1;
 }
 
-function get_player_id(param){
+function get_player_id(param,sync){
 	var playerID;
 	var req = "https://vladtimotei.ro/scripts/4img/4img_get_name.php";
 		$.ajax({
 			type: "GET",
 			url: req,
-			async: false,
+			async: sync,
 			data: param,
 			success: function(data) {
 				playerID = data;
@@ -832,6 +842,7 @@ function check_player(first_check = 1) {
 	player.level = getval(game);
 	player.sound = getval(game+"_sound");
 	player.totalscore = getval(game + "_score");
+	player.ID=getval(game+"_ID");
 	if(player.sound==0) player.sound="on";
 	set_sound();
 	check_mode();
