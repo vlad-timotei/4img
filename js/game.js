@@ -491,7 +491,8 @@ function fill_btns(mode) {
                 btns_txt = level_key[1].split('');
                 for(i = 1; i <= 12; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
             } else {
-                btns_txt = level_key[2].split('');
+				btns_txt = level_key[2].split('');
+				if(player.mode=="easy") btns_txt.sort(function(a, b) {return a.localeCompare(b); });
                 for(i = 1; i <= 16; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
             }
             return true;
@@ -514,7 +515,8 @@ function fill_btns(mode) {
         btns_txt = btns_txt_easy.slice();
         for(i = 1; i <= 12; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
     } else {
-        btns_txt = btns_txt_hard.slice();
+		btns_txt = btns_txt_hard.slice();
+		if(player.mode=="easy") btns_txt.sort(function(a, b) {return a.localeCompare(b); });
         for(i = 1; i <= 16; i++) document.getElementById(i).innerHTML = btns_txt[i - 1];
     }
     setval(game + "_key_"+player.language, player.level + "#" + encrypted_solution_easy + "#" + encrypted_solution_hard);
