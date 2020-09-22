@@ -98,4 +98,4 @@ Explorator pasionat de provocări și de minunile naturii.
 - sound option on-off is remembered
 - userID implemented
 - changed game slug to <i>4img</i>
-- more user LS settings: <i>_, _mode, _acceptedterms, _name, _score, _language, _key_0, _key_1, _ID, _sound</i> 
+
