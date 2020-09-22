@@ -440,10 +440,10 @@ function init() {
 
 function decide_mode() {
     if(level.solution_lenght > 12) {
-        if(player.activemode != "hard") set_mode("hard");
+        set_mode("hard");
         return "hard";
     } else {
-        if(player.activemode != player.mode) set_mode(player.mode);
+        set_mode(player.mode);
         return player.mode;
     }
 }
@@ -455,14 +455,14 @@ function set_mode(forcemode) {
         $("#e2").removeClass("offset-m3");
         $("#h2").addClass("offset-m2");
         $(".hard-letter").removeClass("invisible");
-        player.activemode = "hard";
+    
     } else if(player.mode == "easy" || forcemode == "easy") {
         $("#he1").removeClass("offset-m2");
         $("#he1").addClass("offset-m3");
         $("#e2").addClass("offset-m3");
         $("#h2").removeClass("offset-m2");
         $(".hard-letter").addClass("invisible");
-        player.activemode = "easy";
+        
     }
 }
 
