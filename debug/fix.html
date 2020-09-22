@@ -1,0 +1,41 @@
+<script>
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+function getUrlParam(parameter, defaultvalue){
+    var urlparameter = defaultvalue;
+    if(window.location.href.indexOf(parameter) > -1){
+        urlparameter = getUrlVars()[parameter];
+        }
+    return urlparameter;
+}
+	
+var level=getUrlParam("level",0);
+var score=getUrlParam("score",0);
+var name=getUrlParam("name",0);
+var key=getUrlParam("key",0);
+var game = "4img";
+
+function update(){
+if(key=="name")
+ {setval(game+"_name",name);
+ return;
+ }
+if(key=="4img_"+(parseInt(score)*parseInt(level)*10-5))
+ {
+  setval(game,level);
+  setval (game+"_score",score);
+ }
+}
+
+function setval(cname, cvalue) {
+    localStorage.setItem(cname, cvalue);
+}
+
+if(key!=0) update();
+</script>
