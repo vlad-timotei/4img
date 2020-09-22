@@ -452,21 +452,19 @@ function do_btns(mode) {
     fill_btns(mode);
 }
 
-function set_btns_mode(forcemode) {
-    if(player.mode == "hard" || forcemode == "hard") {
+function set_btns_mode(mode) {
+    if(mode == "hard") {
         $("#he1").addClass("offset-m2");
         $("#he1").removeClass("offset-m3");
         $("#e2").removeClass("offset-m3");
         $("#h2").addClass("offset-m2");
         $(".hard-letter").removeClass("invisible");
-    
-    } else if(player.mode == "easy" || forcemode == "easy") {
+    } else {
         $("#he1").removeClass("offset-m2");
         $("#he1").addClass("offset-m3");
         $("#e2").addClass("offset-m3");
         $("#h2").removeClass("offset-m2");
         $(".hard-letter").addClass("invisible");
-        
     }
 }
 
