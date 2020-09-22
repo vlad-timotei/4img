@@ -197,7 +197,7 @@ function put_ranking(whattype) {
             "</div>";
         $("#clasament-final").html(output);
     }
-    if(ranking[1] < 4) {
+    if(ranking[1] < 10) {
         $("#firstofthem").removeClass("invisible");
         $("#lastofthem").addClass("invisible");
     } else {
