@@ -86,7 +86,7 @@ Explorator pasionat de provocări și de minunile naturii.
 <i> ver 6.0 </i> @ 09.2020
 - 100 levels in 2 languages
 - en_EN package implemented
-- temporary change mode when solution is longer
+- allow longer solutions in easy mode
 - optimized algorithm
 - advanced data-table statistics
 - sanitized user name limited to 10 chars
