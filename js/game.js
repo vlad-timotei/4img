@@ -499,7 +499,7 @@ function fill_btns(mode) {
         }
     }
     var encrypted_solution_easy = level.solution + add_letters(12 - level.solution_lenght);
-    var encrypted_solution_hard = encrypted_solution_easy + add_letters(4);
+    var encrypted_solution_hard = encrypted_solution_easy + add_letters(16-encrypted_solution_easy.length);
 	
     var btns_txt_easy = encrypted_solution_easy.split('');
     btns_txt_easy.sort(function(a, b) {
