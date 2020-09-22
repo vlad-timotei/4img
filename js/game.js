@@ -440,15 +440,19 @@ function init() {
 
 function decide_mode() {
     if(level.solution_lenght > 12) {
-        set_mode("hard");
         return "hard";
     } else {
-        set_mode(player.mode);
         return player.mode;
     }
 }
 
-function set_mode(forcemode) {
+function do_btns(mode) {
+	set_btns_mode(mode);
+    init_btns(mode);
+    fill_btns(mode);
+}
+
+function set_btns_mode(forcemode) {
     if(player.mode == "hard" || forcemode == "hard") {
         $("#he1").addClass("offset-m2");
         $("#he1").removeClass("offset-m3");
@@ -464,11 +468,6 @@ function set_mode(forcemode) {
         $(".hard-letter").addClass("invisible");
         
     }
-}
-
-function do_btns(mode) {
-    init_btns(mode);
-    fill_btns(mode);
 }
 
 function init_btns(mode) {
