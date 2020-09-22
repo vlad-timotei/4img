@@ -725,6 +725,7 @@ function newGame() {
     clearTimeout(level.timeforhint);
     setval(game + "_name", 0);
     setval(game, 0);
+	setval(game+"_ID",0);
     setval(game + "_score", 0);
     player.totalscore = 0;
     player.level = 0;
