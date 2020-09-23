@@ -731,6 +731,7 @@ function newGame() {
     player.level = 0;
     check_level();
     check_player();
+	eplay(music.ninja);
     $("#endgame").hide(500);
     $("#startgame").show(500);
 }
