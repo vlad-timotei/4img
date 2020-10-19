@@ -1016,7 +1016,7 @@ var levels = [
 		"UZZAH|404,405,406,407|biblical figure",
 		"MELCHIZEDEK|408,409,410,412|biblical figure",
 		"DEBORAH|413,414,415,416|biblical figure",
-		"ABINADAB|417,418,419,421|biblical figure"
+		"ABINADAB|417,418,419,421|biblical figure",
 		"JOEL|422,423,424,425|biblical figure",
 		"KETURAH|426,427,428,430|biblical figure",
 		"GEHAZI|431,432,433,434|biblical figure",
