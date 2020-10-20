@@ -1,4 +1,4 @@
-/* Game created by Vlad Timotei $ver.6.0 @23.09.2020 #ro_en100 */
+/* Game created by Vlad Timotei $ver.6.25 @10.2020 #ro_en125 */
 var game = "4img";
 var oldgame = "4img1word_19052020F";
 var level = {}; // solution, solution_lenght, try_lenght, completed, definition, timeforaudiohint, timeoforhint
@@ -878,7 +878,33 @@ var levels = [
         "DINA|359,360,361,220|personaj biblic",
         "AMOS|322,323,324,325|personaj biblic",
         "CORE|367,368,369,370|personaj biblic",
-        "EHUD|371,372,373,304|personaj biblic"
+        "EHUD|371,372,373,304|personaj biblic",
+		"DAVID|374,375,376,377|personaj biblic",
+		"FILIP|378,379,380,381|personaj biblic",
+		"FELIX|382,383,384,385|personaj biblic",
+		"ITAI|386,387,388,390|personaj biblic",
+		"PAVEL|391,392,393,394|personaj biblic",
+		"ELISEI|395,396,397,398|personaj biblic",
+		"FINEAS|399,400,402,403|personaj biblic",
+		"UZA|404,405,406,407|personaj biblic",
+		"MELHISEDEC|408,409,411,412|personaj biblic",
+		"DEBORA|413,414,415,416|personaj biblic",
+		"ABINADAB|417,418,420,421|personaj biblic",
+		"IOEL|422,423,424,425|personaj biblic",
+		"CHETURA|426,427,429,430|personaj biblic",
+		"GHEHAZI|431,432,433,434|personaj biblic",
+		"ELIAB|435,436,438,439|personaj biblic",
+		"TAMAR|440,441,442,443|personaj biblic",
+		"APOLO|444,445,447,448|personaj biblic",
+		"BENAIA|449,450,451,452|personaj biblic",
+		"DRUSILA|453,454,456,457|personaj biblic",
+		"ȘAMGAR|458,459,460,461|personaj biblic",
+		"RIȚPA|462,463,365,69|personaj biblic",
+		"DIMITRIE|464,465,466,467|personaj biblic",
+		"RODA|468,469,470,471|personaj biblic",
+		"TERȚIU|472,473,474,475|personaj biblic",
+		"ȘIFRA|476,477,478,479|personaj biblic",
+		
     ],
     ["MOSES|2,4,6,8|biblical figure",
         "JOSEPH|1,3,5,7|biblical figure",
@@ -979,7 +1005,33 @@ var levels = [
         "DINAH|359,360,361,220|biblical figure",
         "AMOS|322,323,324,325|biblical figure",
         "KORAH|367,368,369,370|biblical figure",
-        "EHUD|371,372,373,304|biblical figure"
+        "EHUD|371,372,373,304|biblical figure",
+		"DAVID|374,375,376,377|biblical figure",
+		"PHILIP|378,379,380,381|biblical figure",
+		"FELIX|382,383,384,385|biblical figure",
+		"ITTAI|386,387,388,389|biblical figure",
+		"PAUL|391,392,393,394|biblical figure",
+		"ELISHA|395,396,397,398|biblical figure",
+		"PHINEAS|399,400,401,403|biblical figure",
+		"UZZAH|404,405,406,407|biblical figure",
+		"MELCHIZEDEK|408,409,410,412|biblical figure",
+		"DEBORAH|413,414,415,416|biblical figure",
+		"ABINADAB|417,418,419,421|biblical figure",
+		"JOEL|422,423,424,425|biblical figure",
+		"KETURAH|426,427,428,430|biblical figure",
+		"GEHAZI|431,432,433,434|biblical figure",
+		"ELIAB|435,436,437,439|biblical figure",
+		"TAMAR|440,441,442,443|biblical figure",
+		"APOLLOS|444,445,446,448|biblical figure",
+		"BENAIAH|449,450,451,452|biblical figure",
+		"DRUSILLA|453,454,455,457|biblical figure",
+		"SHAMGAR|458,459,460,461|biblical figure",
+		"RIZPAH|462,463,365,69|biblical figure",
+		"DEMETRIUS|464,465,466,467|biblical figure",
+		"RHODA|468,469,470,471|biblical figure",
+		"TERTIUS|472,473,474,475|biblical figure",
+		"SHIPHRAH|476,477,478,479|biblical figure"
+		
     ]
 ];
 
