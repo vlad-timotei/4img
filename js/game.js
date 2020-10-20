@@ -9,7 +9,7 @@ var btns_txt = []; //starts with 0
 var clues = [];
 var preloaded_imgs = new Array();
  
-var music = {}
+var music = {};
 music.correct = document.getElementById("s_correct");
 music.incorrect = document.getElementById("s_incorrect");
 music.pull_letter = document.getElementById("s_pull_letter");
@@ -776,7 +776,7 @@ textdb = [
  'game': '4 Images',
  'placeholder':'Put your name here'
 }
-]
+];
 
 var levels = [
     ["MOISE|2,4,6,8|personaj biblic",
