@@ -604,7 +604,7 @@ function check_player_try() {
         $(".reset").removeClass("resetactiv");
         hide_definition(100);
         gametime(2);
-        generate_score();
+        scor();
         setTimeout(display_message, 75, 250, 1);
         setTimeout(next, 1500);
     } else {
@@ -658,14 +658,14 @@ function show_clue() {
     setTimeout(fill_level, 240, 1);
 }
 
-function generate_score() {
+function scor() {
     var difficulty_coeficient = {
         easy: 1,
         hard: 1.75
     };
-	var playertimepergame =  player.timepergame = player.endofgame - player.startofgame;
-    if(playertimepergame > 300000) playertimepergame = 300000;
-    var evaluare = (300000 - playertimepergame + (level.solution_lenght * 10000)) / 1000;
+    player.timepergame = player.endofgame - player.startofgame;
+    if(player.timepergame > 300000) player.timepergame = 300000;
+    var evaluare = (300000 - player.timepergame + (level.solution_lenght * 10000)) / 1000;
     player.scorepergame = parseInt(evaluare * difficulty_coeficient[player.mode] * player.clue_coef);
     player.totalscore = parseInt(player.totalscore) + player.scorepergame;
 }
