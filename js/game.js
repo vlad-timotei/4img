@@ -254,7 +254,7 @@ function eplay(effect) {
     }
 }
 
-function ranking_page(x,fin=0) {
+function ranking_page(x,wantstoseefinalboard=0) {
     setTimeout(eplay, 10, music.ninja);
     if(x) {
 		if(player.wantstoseefinalboard){
@@ -267,7 +267,7 @@ function ranking_page(x,fin=0) {
         $("#startgame").show(500);
 		}
     } else {
-		player.wantstoseefinalboard;
+		if(wantstoseefinalboard) player.wantstoseefinalboard=1;
         get_ranking("full");
         clearTimeout(level.timeforaudiohint);
         $("#game").hide(500);
