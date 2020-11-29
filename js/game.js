@@ -20,6 +20,7 @@ music.hint = document.getElementById("s_hint");
 
 var modal = document.getElementById("modal_area");
 var modalGame = document.getElementById("game");
+player.finalscreen=0;
 
 var stats = {};
 var ranking;
@@ -162,7 +163,7 @@ function show_final_score() {
     $("#finalcongrats-name").html(player.name + "!");
 }
 
-function get_ranking(whattype) {
+function get_ranking(whattype, fin = 0) {
     var param = {
         "type": whattype,
         "name": player.name
@@ -170,11 +171,12 @@ function get_ranking(whattype) {
     var req = "https://vladtimotei.ro/scripts/4img/4img_ranking.php";
     $.get(req, param, function(data) {
         ranking = data;
-        put_ranking(whattype);
+        put_ranking(whattype, fin);
     });
 }
 
-function put_ranking(whattype) {
+function put_ranking(whattype, fin = 0) {
+	if (fin) player.finalscreen=1; 
     var rank = {};
     var output = "";
     var x;
@@ -193,7 +195,7 @@ function put_ranking(whattype) {
         $("#clasament-complet").html(output);
     }
     if(whattype == "final") {
-         output += '<span onclick="javascript:ranking_page();" class="link-clasament" ><i>' + textdb[player.language]['and'] + ' <b>' + ranking[0] + '</b> ' +
+         output += '<span onclick="javascript:ranking_page(0,1);" class="link-clasament" ><i>' + textdb[player.language]['and'] + ' <b>' + ranking[0] + '</b> ' +
             textdb[player.language]['otherplayers'] + ' | ' + textdb[player.language]['fullranking'] + '  </i></span>';
         $("#clasament-final").html(output);
     }
@@ -252,14 +254,17 @@ function eplay(effect) {
     }
 }
 
-function ranking_page(x) {
+function ranking_page(x,fin=0) {
     setTimeout(eplay, 10, music.ninja);
     if(x) {
+		if(player.finalscreen) show_final_score();
+		else{
         get_ranking("short");
         $("#rankingpage").hide(500);
         $("#startgame").show(500);
+		}
     } else {
-        get_ranking("full");
+        get_ranking("full",fin);
         clearTimeout(level.timeforaudiohint);
         $("#game").hide(500);
         $("#startgame").hide(500);
