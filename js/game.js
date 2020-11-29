@@ -98,7 +98,7 @@ function check_player(first_check = 1) {
     player.sound = getval(game + "_sound");
     player.totalscore = getval(game + "_score");
     player.ID = getval(game + "_ID");
-	player.wantstoseefinalboard=0;
+	player.goestoend=0;
     if(player.sound == 0) player.sound = "on";
     set_sound();
     check_mode();
@@ -254,10 +254,10 @@ function eplay(effect) {
     }
 }
 
-function ranking_page(x,wantstoseefinalboard=0) {
+function ranking_page(x,goestoend=0) {
     setTimeout(eplay, 10, music.ninja);
     if(x) {
-		if(player.wantstoseefinalboard){
+		if(player.goestoend){
             $("#rankingpage").hide(500);
 			$("#endgame").show(500);
 		}
@@ -267,7 +267,7 @@ function ranking_page(x,wantstoseefinalboard=0) {
         $("#startgame").show(500);
 		}
     } else {
-		if(wantstoseefinalboard) player.wantstoseefinalboard=1;
+		if(goestoend) player.goestoend=1;
         get_ranking("full");
         clearTimeout(level.timeforaudiohint);
         $("#game").hide(500);
