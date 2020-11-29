@@ -20,7 +20,7 @@ music.hint = document.getElementById("s_hint");
 
 var modal = document.getElementById("modal_area");
 var modalGame = document.getElementById("game");
-player.finalscreen=0;
+
 
 var stats = {};
 var ranking;
@@ -98,6 +98,7 @@ function check_player(first_check = 1) {
     player.sound = getval(game + "_sound");
     player.totalscore = getval(game + "_score");
     player.ID = getval(game + "_ID");
+	player.wantstoseefinalboard=0;
     if(player.sound == 0) player.sound = "on";
     set_sound();
     check_mode();
@@ -163,7 +164,7 @@ function show_final_score() {
     $("#finalcongrats-name").html(player.name + "!");
 }
 
-function get_ranking(whattype, fin = 0) {
+function get_ranking(whattype) {
     var param = {
         "type": whattype,
         "name": player.name
@@ -171,12 +172,11 @@ function get_ranking(whattype, fin = 0) {
     var req = "https://vladtimotei.ro/scripts/4img/4img_ranking.php";
     $.get(req, param, function(data) {
         ranking = data;
-        put_ranking(whattype, fin);
+        put_ranking(whattype);
     });
 }
 
-function put_ranking(whattype, fin = 0) {
-	if (fin) player.finalscreen=1; 
+function put_ranking(whattype) {
     var rank = {};
     var output = "";
     var x;
@@ -257,14 +257,18 @@ function eplay(effect) {
 function ranking_page(x,fin=0) {
     setTimeout(eplay, 10, music.ninja);
     if(x) {
-		if(player.finalscreen) show_final_score();
+		if(player.wantstoseefinalboard){
+            $("#rankingpage").hide(500);
+			$("#endgame").show(500);
+		}
 		else{
         get_ranking("short");
         $("#rankingpage").hide(500);
         $("#startgame").show(500);
 		}
     } else {
-        get_ranking("full",fin);
+		player.wantstoseefinalboard;
+        get_ranking("full");
         clearTimeout(level.timeforaudiohint);
         $("#game").hide(500);
         $("#startgame").hide(500);
