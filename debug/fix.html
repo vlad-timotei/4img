@@ -22,15 +22,14 @@ var key=getUrlParam("key",0);
 var game = "4img";
 
 function update(){
-if(key=="name")
- {setval(game+"_name",name);
- return;
- }
 if(key=="4img_"+(parseInt(score)*parseInt(level)*10-5))
  {
   setval(game,level);
   setval (game+"_score",score);
+  if(name!="") setval(game+"_name",name);
+  window.location.replace("https://4img.funbible.net/");
  }
+
 }
 
 function setval(cname, cvalue) {

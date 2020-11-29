@@ -193,8 +193,8 @@ function put_ranking(whattype) {
         $("#clasament-complet").html(output);
     }
     if(whattype == "final") {
-        output += "<div class='cent center'>" + textdb[player.language]['and'] + " <b>" + ranking[0] + "</b> " + textdb[player.language]['otherplayers'] +
-            "</div>";
+         output += '<span onclick="javascript:ranking_page();" class="link-clasament" ><i>' + textdb[player.language]['and'] + ' <b>' + ranking[0] + '</b> ' +
+            textdb[player.language]['otherplayers'] + ' | ' + textdb[player.language]['fullranking'] + '  </i></span>';
         $("#clasament-final").html(output);
     }
     if(ranking[1] < 10) {
