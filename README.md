@@ -101,4 +101,3 @@ Explorator pasionat de provocări și de minunile naturii.
 
 <i> ver 6.25 </i> @ 10.2020
 - 125 levels in 2 languages
-- fix time-stats > 5mins
